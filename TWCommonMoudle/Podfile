@@ -1,0 +1,25 @@
+platform :ios, '8.0'
+
+target 'TWCommonMoudleDemo' do
+    pod 'AFNetworking', '~> 3.1.0'
+    pod 'MJRefresh', '2.4.12'
+    pod 'MJExtension', '~> 3.0.13'
+    pod 'Qiniu', '~> 7.1.5'
+    
+    # ShareSDK
+    # 主模块(必须)
+    pod 'ShareSDK3', '~> 4.0.0.1'
+    pod 'MOBFoundation'
+    
+    pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+    pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+    pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+    pod 'ShareSDK3/ShareSDKPlatforms/Facebook'
+    pod 'ShareSDK3/ShareSDKPlatforms/Line'
+    
+    pod 'SDWebImage', '~> 3.7.3'
+    
+    pod 'TWFreshLoadingView', '~> 0.8.0'
+
+
+end
