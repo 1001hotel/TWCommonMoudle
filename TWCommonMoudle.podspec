@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
  #s.vendored_libraries = '/Pod/Classes/*.a'
  #s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js"
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
- s.libraries = "z", "c++"
+ s.libraries = "z", "c++", "blockdown"
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
 
 

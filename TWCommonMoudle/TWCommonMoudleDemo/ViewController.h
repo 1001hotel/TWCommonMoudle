@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TW_CommonPage.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : TW_CommonPage
 
 
 @end
