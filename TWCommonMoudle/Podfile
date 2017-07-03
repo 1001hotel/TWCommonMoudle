@@ -8,7 +8,7 @@ target 'TWCommonMoudleDemo' do
     
     # ShareSDK
     # 主模块(必须)
-    pod 'ShareSDK3', '~> ShareSDK3'
+    pod 'ShareSDK3', '~> 4.0.0.1'
     pod 'MOBFoundation'
     
     pod 'ShareSDK3/ShareSDKPlatforms/QQ'

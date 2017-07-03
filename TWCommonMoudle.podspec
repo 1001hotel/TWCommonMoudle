@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
  s.dependency "AFNetworking", "~> 3.1.0"
  s.dependency "MJRefresh", "~> 2.4.12"
  s.dependency "MJExtension", "~> 3.0.13"
- s.dependency "ShareSDK3", "~> ShareSDK3"
+ s.dependency "ShareSDK3", "~> 4.0.0.1"
  s.dependency "MOBFoundation"
  s.dependency "ShareSDK3/ShareSDKPlatforms/QQ"
  s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
