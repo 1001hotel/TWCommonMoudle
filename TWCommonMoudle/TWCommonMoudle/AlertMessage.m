@@ -68,17 +68,15 @@ cancelCompleteSelector:(SEL)sel2
             _delegate = delegate;
             if (completion) {
                 if (_alertMessageConfirmCompletionBlock) {
-                    Block_release((__bridge void *)_alertMessageConfirmCompletionBlock);
                     _alertMessageConfirmCompletionBlock = nil;
                 }
-                _alertMessageConfirmCompletionBlock = (__bridge id)Block_copy((__bridge void *)completion);
+                _alertMessageConfirmCompletionBlock = completion;
             }
             if (completion2) {
                 if (_alertMessageCancelCompletionBlock) {
-                    Block_release((__bridge void *)_alertMessageCancelCompletionBlock);
                     _alertMessageCancelCompletionBlock = nil;
                 }
-                _alertMessageCancelCompletionBlock = (__bridge id)Block_copy((__bridge void *)completion2);
+                _alertMessageCancelCompletionBlock = completion2;
             }
         }
     }
@@ -103,44 +101,42 @@ continueCompletion:(void (^)(void))completion3
             _delegate = delegate;
             if (completion) {
                 if (_alertMessageConfirmCompletionBlock) {
-                    Block_release((__bridge void *)_alertMessageConfirmCompletionBlock);
                     _alertMessageConfirmCompletionBlock = nil;
                 }
-                _alertMessageConfirmCompletionBlock = (__bridge id)Block_copy((__bridge void *)completion);
+                _alertMessageConfirmCompletionBlock = completion;
             }
             if (completion2) {
                 if (_alertMessageCancelCompletionBlock) {
-                    Block_release((__bridge void *)_alertMessageCancelCompletionBlock);
                     _alertMessageCancelCompletionBlock = nil;
                 }
-                _alertMessageCancelCompletionBlock = (__bridge id)Block_copy((__bridge void *)completion2);
+                _alertMessageCancelCompletionBlock = completion2;
             }
             if (completion3) {
                 if (_alertMessageContinueCompletionBlock) {
-                    Block_release((__bridge void *)_alertMessageContinueCompletionBlock);
+
                     _alertMessageContinueCompletionBlock = nil;
                 }
-                _alertMessageContinueCompletionBlock = (__bridge id)Block_copy((__bridge void *)completion3);
+                _alertMessageContinueCompletionBlock = completion3;
             }
         }
     }
     return self;
 }
--(void)dealloc{
-    
-    if (_alertMessageConfirmCompletionBlock) {
-        Block_release((__bridge void *)_alertMessageConfirmCompletionBlock);
-        _alertMessageConfirmCompletionBlock = nil;
-    }
-    if (_alertMessageCancelCompletionBlock) {
-        Block_release((__bridge void *)_alertMessageCancelCompletionBlock);
-        _alertMessageCancelCompletionBlock = nil;
-    }
-    if (_alertMessageContinueCompletionBlock) {
-        Block_release((__bridge void *)_alertMessageContinueCompletionBlock);
-        _alertMessageContinueCompletionBlock = nil;
-    }
-}
+//-(void)dealloc{
+//    
+//    if (_alertMessageConfirmCompletionBlock) {
+//        Block_release((__bridge void *)_alertMessageConfirmCompletionBlock);
+//        _alertMessageConfirmCompletionBlock = nil;
+//    }
+//    if (_alertMessageCancelCompletionBlock) {
+//        Block_release((__bridge void *)_alertMessageCancelCompletionBlock);
+//        _alertMessageCancelCompletionBlock = nil;
+//    }
+//    if (_alertMessageContinueCompletionBlock) {
+//        Block_release((__bridge void *)_alertMessageContinueCompletionBlock);
+//        _alertMessageContinueCompletionBlock = nil;
+//    }
+//}
 
 
 #pragma mark
