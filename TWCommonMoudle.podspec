@@ -20,6 +20,17 @@ Pod::Spec.new do |s|
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
  s.libraries = "z", "c++"
  s.dependency "AFNetworking", "~> 3.1.0"
+ s.dependency "MJRefresh", "~> 2.4.12"
+ s.dependency "MJExtension", "~> 3.0.13"
+ s.dependency "ShareSDK3", "~> ShareSDK3"
+ s.dependency "MOBFoundation"
+ s.dependency "ShareSDK3/ShareSDKPlatforms/QQ"
+ s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
+ s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat"
+ s.dependency "ShareSDK3/ShareSDKPlatforms/Facebook"
+ s.dependency "ShareSDK3/ShareSDKPlatforms/Line"
+ s.dependency "SDWebImage", "~> 3.7.3"
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
+
 
 end
