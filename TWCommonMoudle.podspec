@@ -20,6 +20,8 @@ Pod::Spec.new do |s|
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
  s.libraries = "z", "c++", "blockdown"
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
+ s.dependency "AFNetworking", "~> 3.1.0"
+
 
 
 end
