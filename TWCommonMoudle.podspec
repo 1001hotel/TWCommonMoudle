@@ -30,6 +30,11 @@ Pod::Spec.new do |s|
  s.dependency "ShareSDK3/ShareSDKPlatforms/Facebook"
  s.dependency "ShareSDK3/ShareSDKPlatforms/Line"
  s.dependency "SDWebImage", "~> 3.7.3"
+ s.dependency "Qiniu", "~> 7.1.5"
+
+ s.dependency "AMapSearch-NO-IDFA", "~> 5.0.0"
+ s.dependency "BaiduMobStat", "~> 4.5.0"
+
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
 
 
