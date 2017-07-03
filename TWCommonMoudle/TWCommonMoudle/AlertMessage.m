@@ -140,9 +140,6 @@ continueCompletion:(void (^)(void))completion3
         Block_release((__bridge void *)_alertMessageContinueCompletionBlock);
         _alertMessageContinueCompletionBlock = nil;
     }
-    [_alertView release];
-    [self release];
-    [super dealloc];
 }
 
 
@@ -151,14 +148,12 @@ continueCompletion:(void (^)(void))completion3
 -(void)show{
 
     [_alertView show];
-    [self retain];
 }
 -(void)showForSeconds:(float)sec{
 
     [_alertView show];
     [self performSelector:@selector(_doneShowAlert) withObject:nil afterDelay:sec];
     _autoCompletion = YES;
-    [self retain];
 }
 
 

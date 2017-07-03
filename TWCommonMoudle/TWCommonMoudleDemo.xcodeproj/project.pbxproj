@@ -14,7 +14,7 @@
 		6CB36E8F1F039D95000128FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB36E8E1F039D95000128FB /* Assets.xcassets */; };
 		6CB36E921F039D95000128FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB36E901F039D95000128FB /* LaunchScreen.storyboard */; };
 		6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */; };
-		6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9E1F03A6D9000128FB /* AlertMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9E1F03A6D9000128FB /* AlertMessage.m */; };
 		F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */; };
 /* End PBXBuildFile section */
 
