@@ -21,7 +21,5 @@ Pod::Spec.new do |s|
  s.libraries = "z", "c++", "blockdown"
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
  s.dependency "AFNetworking", "~> 3.1.0"
-s.dependency
-
 
 end
