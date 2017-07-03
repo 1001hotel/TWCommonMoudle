@@ -171,7 +171,11 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageConfirmCompletionBlock();
                     }
                     if (_alertMessageConfirmCompleteSelector) {
+                       
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                         [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
                     }
                 }
                 else if (_alertType == AlertMessageTypeDecision) {
@@ -180,7 +184,11 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageCancelCompletionBlock();
                     }
                     if (_alertMessageCancelCompleteSelector) {
-                        [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
+                     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+   [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
                     }
                 }
             }
@@ -197,7 +205,10 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                             [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
                         }
                     }
                 }
@@ -210,7 +221,10 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageConfirmCompletionBlock();
                     }
                     if (_alertMessageConfirmCompleteSelector) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                         [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
                     }
                 }
             }
@@ -239,7 +253,12 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
-                            [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+ [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
+
+                           
                         }
                     }
                     else if (_alertType == AlertMessageTypeDecision) {
@@ -248,7 +267,12 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageCancelCompletionBlock();
                         }
                         if (_alertMessageCancelCompleteSelector) {
-                            [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                           [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
+
+                            
                         }
                     }
                 }
@@ -260,7 +284,11 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
+                            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                             [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
+#pragma clang diagnostic pop
                         }
                     }
                 }
