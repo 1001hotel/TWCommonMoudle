@@ -15,12 +15,25 @@
 		6CB36E921F039D95000128FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB36E901F039D95000128FB /* LaunchScreen.storyboard */; };
 		6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */; };
 		6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9E1F03A6D9000128FB /* AlertMessage.m */; };
+		6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */; };
+		6CB5EBE01F0CD0A500DBE10C /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDA1F0CD0A500DBE10C /* NSData+CommonCrypto.m */; };
+		6CB5EBE11F0CD0A500DBE10C /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDC1F0CD0A500DBE10C /* NSString+Base64.m */; };
+		6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */; };
+		6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */; };
 		F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3079E1FE3864B2B01252D8C8 /* Pods-TWCommonMoudleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWCommonMoudleDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo.release.xcconfig"; sourceTree = "<group>"; };
 		577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWCommonMoudleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C773B4B1F0BAD4D00128F3D /* UIView+ZLAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+ZLAutoLayout.h"; path = "TWCommonMoudle/UIView+ZLAutoLayout.h"; sourceTree = SOURCE_ROOT; };
+		6C773B4C1F0BAD4D00128F3D /* UIColor+ColorTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorTransfer.m"; path = "TWCommonMoudle/UIColor+ColorTransfer.m"; sourceTree = SOURCE_ROOT; };
+		6C773B4D1F0BAD4D00128F3D /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "TWCommonMoudle/UIView+Extension.m"; sourceTree = SOURCE_ROOT; };
+		6C773B4E1F0BAD4D00128F3D /* UIView+ZLAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZLAutoLayout.m"; path = "TWCommonMoudle/UIView+ZLAutoLayout.m"; sourceTree = SOURCE_ROOT; };
+		6C773B4F1F0BAD4D00128F3D /* UIColor+ColorTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorTransfer.h"; path = "TWCommonMoudle/UIColor+ColorTransfer.h"; sourceTree = SOURCE_ROOT; };
+		6C773B501F0BAD4D00128F3D /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "TWCommonMoudle/UIView+Extension.h"; sourceTree = SOURCE_ROOT; };
+		6C857B6B1F0B3A5100894A9D /* TWCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TWCommonDefine.h; path = TWCommonMoudle/TWCommonDefine.h; sourceTree = SOURCE_ROOT; };
 		6CB36E7F1F039D95000128FB /* TWCommonMoudleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWCommonMoudleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB36E831F039D95000128FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CB36E851F039D95000128FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +48,18 @@
 		6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_CommonPage.m; path = TWCommonMoudle/TW_CommonPage.m; sourceTree = SOURCE_ROOT; };
 		6CB36E9D1F03A6D9000128FB /* AlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertMessage.h; path = TWCommonMoudle/AlertMessage.h; sourceTree = SOURCE_ROOT; };
 		6CB36E9E1F03A6D9000128FB /* AlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertMessage.m; path = TWCommonMoudle/AlertMessage.m; sourceTree = SOURCE_ROOT; };
+		6CB5EBD71F0CD0A500DBE10C /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "TWCommonMoudle/NSData+Base64.h"; sourceTree = SOURCE_ROOT; };
+		6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "TWCommonMoudle/NSData+Base64.m"; sourceTree = SOURCE_ROOT; };
+		6CB5EBD91F0CD0A500DBE10C /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CommonCrypto.h"; path = "TWCommonMoudle/NSData+CommonCrypto.h"; sourceTree = SOURCE_ROOT; };
+		6CB5EBDA1F0CD0A500DBE10C /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CommonCrypto.m"; path = "TWCommonMoudle/NSData+CommonCrypto.m"; sourceTree = SOURCE_ROOT; };
+		6CB5EBDB1F0CD0A500DBE10C /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Base64.h"; path = "TWCommonMoudle/NSString+Base64.h"; sourceTree = SOURCE_ROOT; };
+		6CB5EBDC1F0CD0A500DBE10C /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Base64.m"; path = "TWCommonMoudle/NSString+Base64.m"; sourceTree = SOURCE_ROOT; };
+		6CB5EBDD1F0CD0A500DBE10C /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = TWCommonMoudle/Utilities.h; sourceTree = SOURCE_ROOT; };
+		6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Utilities.mm; path = TWCommonMoudle/Utilities.mm; sourceTree = SOURCE_ROOT; };
+		6CB5EBE31F0CD18100DBE10C /* TWCommonMoudle.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWCommonMoudle.pch; sourceTree = "<group>"; };
+		6CB5EBE41F0CD45E00DBE10C /* CLLocation+YCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocation+YCLocation.h"; path = "TWCommonMoudle/CLLocation+YCLocation.h"; sourceTree = SOURCE_ROOT; };
+		6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+YCLocation.m"; path = "TWCommonMoudle/CLLocation+YCLocation.m"; sourceTree = SOURCE_ROOT; };
+		6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E06D3C20AC87BC516A9E41F3 /* Pods-TWCommonMoudleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWCommonMoudleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */,
 				F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,9 +79,23 @@
 		66C465E5A9E77529130DD94B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */,
 				577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C773B441F0BACDE00128F3D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6C773B4F1F0BAD4D00128F3D /* UIColor+ColorTransfer.h */,
+				6C773B4C1F0BAD4D00128F3D /* UIColor+ColorTransfer.m */,
+				6C773B501F0BAD4D00128F3D /* UIView+Extension.h */,
+				6C773B4D1F0BAD4D00128F3D /* UIView+Extension.m */,
+				6C773B4B1F0BAD4D00128F3D /* UIView+ZLAutoLayout.h */,
+				6C773B4E1F0BAD4D00128F3D /* UIView+ZLAutoLayout.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		6CB36E761F039D95000128FB = {
@@ -97,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				6CB36E831F039D95000128FB /* main.m */,
+				6CB5EBE31F0CD18100DBE10C /* TWCommonMoudle.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -104,12 +145,40 @@
 		6CB36E991F03A5AD000128FB /* TW_CommonPage */ = {
 			isa = PBXGroup;
 			children = (
+				6CB5EBE91F0CD4ED00DBE10C /* Resource */,
+				6CB5EBD61F0CD05A00DBE10C /* Utilities */,
+				6C773B441F0BACDE00128F3D /* Category */,
+				6C857B6B1F0B3A5100894A9D /* TWCommonDefine.h */,
 				6CB36E9A1F03A5C1000128FB /* TW_CommonPage.h */,
 				6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */,
 				6CB36E9D1F03A6D9000128FB /* AlertMessage.h */,
 				6CB36E9E1F03A6D9000128FB /* AlertMessage.m */,
 			);
 			name = TW_CommonPage;
+			sourceTree = "<group>";
+		};
+		6CB5EBD61F0CD05A00DBE10C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5EBE41F0CD45E00DBE10C /* CLLocation+YCLocation.h */,
+				6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */,
+				6CB5EBD71F0CD0A500DBE10C /* NSData+Base64.h */,
+				6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */,
+				6CB5EBD91F0CD0A500DBE10C /* NSData+CommonCrypto.h */,
+				6CB5EBDA1F0CD0A500DBE10C /* NSData+CommonCrypto.m */,
+				6CB5EBDB1F0CD0A500DBE10C /* NSString+Base64.h */,
+				6CB5EBDC1F0CD0A500DBE10C /* NSString+Base64.m */,
+				6CB5EBDD1F0CD0A500DBE10C /* Utilities.h */,
+				6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		6CB5EBE91F0CD4ED00DBE10C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		943A33545FE917A11C54B59A /* Pods */ = {
@@ -246,9 +315,14 @@
 			files = (
 				6CB36E8A1F039D95000128FB /* ViewController.m in Sources */,
 				6CB36E871F039D95000128FB /* AppDelegate.m in Sources */,
+				6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */,
 				6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */,
 				6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */,
+				6CB5EBE11F0CD0A500DBE10C /* NSString+Base64.m in Sources */,
 				6CB36E841F039D95000128FB /* main.m in Sources */,
+				6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */,
+				6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */,
+				6CB5EBE01F0CD0A500DBE10C /* NSData+CommonCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,11 +446,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				GCC_PREFIX_HEADER = TWCommonMoudleDemo/TWCommonMoudle.pch;
 				INFOPLIST_FILE = TWCommonMoudleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.TWCommonMoudleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = TWCommonMoudleDemo/TWCommonMoudle.pch;
 			};
 			name = Debug;
 		};
@@ -386,11 +462,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				GCC_PREFIX_HEADER = TWCommonMoudleDemo/TWCommonMoudle.pch;
 				INFOPLIST_FILE = TWCommonMoudleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.TWCommonMoudleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = TWCommonMoudleDemo/TWCommonMoudle.pch;
 			};
 			name = Release;
 		};
