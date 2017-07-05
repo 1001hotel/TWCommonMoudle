@@ -9,7 +9,6 @@
 #import "TW_WebServiceController.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
-#import "AppDelegate.h"
 #import "Utilities.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
