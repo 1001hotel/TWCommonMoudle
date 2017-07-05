@@ -111,7 +111,7 @@ static HttpDnsService *httpdns;
         
         
         @try {
-            /*
+            ///*
             NSString *host = [[NSURL URLWithString:url] host];
             if (host.length > 0) {
                 
