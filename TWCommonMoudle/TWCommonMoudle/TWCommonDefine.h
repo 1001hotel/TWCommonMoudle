@@ -17,6 +17,20 @@
 #define KEY_ACCESSTOKEN                       @"accesstoken"
 #define IS_EXPERT                             @"isExpert"
 
+#define KEY_ACCESSTOKEN                       @"accesstoken"
+#define KEY_ACCESSPHONENUMBER                 @"phoneNumber"
+#define KEY_PASSWORD                          @"password"
+#define KEY_ACCESSTOKEN_VALIDATE_FAIL         @"tokenvalidatefail"
+#define KEY_DEVICE_TOKEN                      @"devicetoken"
+
+
+#define KEY_NOTI_QUERY_HAS_FAVORITE           @"queryIsFavourite"
+#define KEY_NOTI_PUSH_STRATRGT_LIST           @"pushStrtegyList"
+
+
+#define KEY_NOTI_SUCCESS_EDIT_STRATEGY        @"successEditStragety"
+
+
 //调试状态下生效的日志打印
 #ifdef DEBUG
 #   define MyLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
