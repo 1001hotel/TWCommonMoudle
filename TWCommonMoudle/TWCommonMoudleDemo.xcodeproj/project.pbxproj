@@ -21,6 +21,11 @@
 		6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */; };
 		6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */; };
+		6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */; };
+		6CB5EBF11F0CE67B00DBE10C /* TextFontFit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBF01F0CE67B00DBE10C /* TextFontFit.m */; };
+		6CB5EBF51F0CEA1D00DBE10C /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */; };
+		6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */; };
+		6CB5EBF81F0CECA700DBE10C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF71F0CECA700DBE10C /* AlipaySDK.framework */; };
 		F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +65,13 @@
 		6CB5EBE41F0CD45E00DBE10C /* CLLocation+YCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocation+YCLocation.h"; path = "TWCommonMoudle/CLLocation+YCLocation.h"; sourceTree = SOURCE_ROOT; };
 		6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+YCLocation.m"; path = "TWCommonMoudle/CLLocation+YCLocation.m"; sourceTree = SOURCE_ROOT; };
 		6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_WebServiceController.h; path = TWCommonMoudle/TW_WebServiceController.h; sourceTree = SOURCE_ROOT; };
+		6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TW_WebServiceController.mm; path = TWCommonMoudle/TW_WebServiceController.mm; sourceTree = SOURCE_ROOT; };
+		6CB5EBEF1F0CE67B00DBE10C /* TextFontFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFontFit.h; path = TWCommonMoudle/TextFontFit.h; sourceTree = SOURCE_ROOT; };
+		6CB5EBF01F0CE67B00DBE10C /* TextFontFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFontFit.m; path = TWCommonMoudle/TextFontFit.m; sourceTree = SOURCE_ROOT; };
+		6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudHttpDNS.framework; path = TWCommonMoudle/AlicloudHttpDNS.framework; sourceTree = SOURCE_ROOT; };
+		6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = TWCommonMoudle/AlicloudUtils.framework; sourceTree = SOURCE_ROOT; };
+		6CB5EBF71F0CECA700DBE10C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = TWCommonMoudle/AlipaySDK.framework; sourceTree = SOURCE_ROOT; };
 		E06D3C20AC87BC516A9E41F3 /* Pods-TWCommonMoudleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWCommonMoudleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +81,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */,
+				6CB5EBF81F0CECA700DBE10C /* AlipaySDK.framework in Frameworks */,
+				6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */,
 				F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */,
+				6CB5EBF51F0CEA1D00DBE10C /* AlicloudHttpDNS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +160,8 @@
 		6CB36E991F03A5AD000128FB /* TW_CommonPage */ = {
 			isa = PBXGroup;
 			children = (
+				6CB5EBF21F0CEA0E00DBE10C /* framework */,
+				6CB5EBEB1F0CE65300DBE10C /* network */,
 				6CB5EBE91F0CD4ED00DBE10C /* Resource */,
 				6CB5EBD61F0CD05A00DBE10C /* Utilities */,
 				6C773B441F0BACDE00128F3D /* Category */,
@@ -160,6 +177,8 @@
 		6CB5EBD61F0CD05A00DBE10C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6CB5EBEF1F0CE67B00DBE10C /* TextFontFit.h */,
+				6CB5EBF01F0CE67B00DBE10C /* TextFontFit.m */,
 				6CB5EBE41F0CD45E00DBE10C /* CLLocation+YCLocation.h */,
 				6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */,
 				6CB5EBD71F0CD0A500DBE10C /* NSData+Base64.h */,
@@ -179,6 +198,25 @@
 			children = (
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		6CB5EBEB1F0CE65300DBE10C /* network */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceController.h */,
+				6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		6CB5EBF21F0CEA0E00DBE10C /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5EBF71F0CECA700DBE10C /* AlipaySDK.framework */,
+				6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */,
+				6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */,
+			);
+			name = framework;
 			sourceTree = "<group>";
 		};
 		943A33545FE917A11C54B59A /* Pods */ = {
@@ -313,8 +351,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceController.mm in Sources */,
 				6CB36E8A1F039D95000128FB /* ViewController.m in Sources */,
 				6CB36E871F039D95000128FB /* AppDelegate.m in Sources */,
+				6CB5EBF11F0CE67B00DBE10C /* TextFontFit.m in Sources */,
 				6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */,
 				6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */,
 				6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */,
@@ -446,6 +486,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TWCommonMoudle",
+				);
 				GCC_PREFIX_HEADER = TWCommonMoudleDemo/TWCommonMoudle.pch;
 				INFOPLIST_FILE = TWCommonMoudleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -462,6 +506,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TWCommonMoudle",
+				);
 				GCC_PREFIX_HEADER = TWCommonMoudleDemo/TWCommonMoudle.pch;
 				INFOPLIST_FILE = TWCommonMoudleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
