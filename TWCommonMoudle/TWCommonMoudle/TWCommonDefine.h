@@ -115,20 +115,6 @@ result;\
 #define OTHER_DIR                       @"Other/"
 #define DATA_DIR                        @"Data/"
 
-#define TODAY                                       @"today"
-#define JANUARY                                     @"January"//一月January
-#define FEBRUARY                                    @"February"//二月February
-#define MARCH                                       @"March"//三月March
-#define APRIL                                       @"April"//四月April
-#define MAY                                         @"May"//五月May
-#define JUNE                                        @"June"//六月June
-#define JULY                                        @"July"//七月July
-#define AUGUST                                      @"August"//八月August
-#define SEPTEMBRT                                   @"September"//九月September
-#define OCTOBER                                     @"October"//十月October
-#define NOVEMBER                                    @"November"//十一月November
-#define DECEMBER                                    @"December"//十二月December
-
 
 #endif /* TWCommonDefine_h */
 
