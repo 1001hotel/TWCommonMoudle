@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   #s.vendored_frameworks = "TWRichTextEditor/ThirdParty/iflyMSC.framework", "TWRichTextEditor/ThirdParty/AipBase.framework", "TWRichTextEditor/ThirdParty/AipOcrSdk.framework"
  #s.vendored_libraries = '/Pod/Classes/*.a'
  #s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js"
- s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
+ s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics", "MapKit"
  s.libraries = "z", "c++"
  s.dependency "AFNetworking", "~> 3.1.0"
  s.dependency "MJRefresh", "~> 2.4.12"
