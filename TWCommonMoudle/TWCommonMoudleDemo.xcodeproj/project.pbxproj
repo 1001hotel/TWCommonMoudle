@@ -18,7 +18,7 @@
 		6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */; };
 		6CB5EBE01F0CD0A500DBE10C /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDA1F0CD0A500DBE10C /* NSData+CommonCrypto.m */; };
 		6CB5EBE11F0CD0A500DBE10C /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDC1F0CD0A500DBE10C /* NSString+Base64.m */; };
-		6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */; };
 		6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */; };
 		6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */; };
 		6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */; };

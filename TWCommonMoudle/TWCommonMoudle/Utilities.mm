@@ -383,7 +383,7 @@
 		}
 		[result addObject:last_gp_set];
 	}
-	return [[result retain] autorelease];
+	return result;
 }
 +(NSArray *)groupFrom:(NSArray *)sourceSet withGroupSize:(NSInteger)groupSize{
 	
@@ -418,7 +418,7 @@
 		}
 		[result addObject:last_gp_set];
 	}
-	return [[result retain] autorelease];
+	return result;
 }
 
 +(NSData *)simpleEncryption__Indexed_And_XOR__From:(NSData *)sourceData{
@@ -903,7 +903,6 @@
     NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    [formatter release];
     return str;
 }
 +(NSString *)nowStringSSS{
@@ -911,7 +910,6 @@
     NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyyMMddHHmmssSSS"];
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    [formatter release];
     return str;
 }
 +(NSString *)nowStringChs{
@@ -919,7 +917,6 @@
     NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy年 MM月 dd日 HH:mm:ss"];
     NSString *str = [formatter stringFromDate:[NSDate date]];
-    [formatter release];
     return str;
 }
 +(NSString *)timedUniqueName{
@@ -930,7 +927,6 @@
     NSString *nowStr = [formatter stringFromDate:[NSDate date]];
     [formatter setDateFormat:@"SSS"];
     NSString *milSecStr = [formatter stringFromDate:[NSDate date]];
-    [formatter release];
     result = [NSString stringWithFormat:@"%@-%@", nowStr, [self md5:milSecStr]];
     
     return result;
@@ -947,7 +943,7 @@
         return result;
     }
     else{
-        UIAlertView *alert = [[[UIAlertView alloc]initWithTitle:@"警告" message:@"设备内存不足，媒体储存失败！" delegate:nil cancelButtonTitle:@"返回" otherButtonTitles: nil]autorelease];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"警告" message:@"设备内存不足，媒体储存失败！" delegate:nil cancelButtonTitle:@"返回" otherButtonTitles: nil];
         [alert show];
         return NO;
     }
@@ -966,7 +962,7 @@
 
 +(NSAttributedString *)highlightString:(NSString *)str forKey:(NSArray *)keyStrs withColor:(UIColor *)color{
     
-    NSMutableAttributedString *result = [[[NSMutableAttributedString alloc] initWithString:str] autorelease];
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] initWithString:str];
     for (NSString *s in keyStrs) {
         NSRange range = [str rangeOfString:s options:NSCaseInsensitiveSearch];
         [result setAttributes:[NSDictionary dictionaryWithObject:color forKey:NSForegroundColorAttributeName] range:range];
