@@ -145,6 +145,12 @@ result;\
 #define NOVEMBER                                    @"November"//十一月November
 #define DECEMBER                                    @"December"//十二月December
 
+#define URL_TOURWAY_APP_PRIVARY              @"http://web.1001hi.com/h5/privacy"
+#define URL_TOURWAY_APP_PROTOCAL              @"http://web.1001hi.com/h5/agreement"
+#define URL_TOURWAY_APP_ABOUT                 @"http://web.1001hi.com/h5/tuji/about/ios/"
+#define URL_TOURWAY_DOWNLOAD                  @"http://web.1001hi.com/h5/download/mobile/index.html"
+#define URL_TOURWAY_DOWNLOAD_APPSTORE         @"https://itunes.apple.com/us/app/tu-yu/id1062547748?l=zh&ls=1&mt=8"
+
 
 #endif /* TWCommonDefine_h */
 
