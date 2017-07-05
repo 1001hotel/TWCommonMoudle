@@ -26,6 +26,8 @@
 		6CB5EBF51F0CEA1D00DBE10C /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */; };
 		6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */; };
 		6CB5EBF81F0CECA700DBE10C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF71F0CECA700DBE10C /* AlipaySDK.framework */; };
+		6CB5EC021F0CFE6E00DBE10C /* TW_UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBFF1F0CFE6E00DBE10C /* TW_UserModel.m */; };
+		6CB5EC031F0CFE6E00DBE10C /* TW_UserModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EC011F0CFE6E00DBE10C /* TW_UserModel2.m */; };
 		F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,10 @@
 		6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudHttpDNS.framework; path = TWCommonMoudle/AlicloudHttpDNS.framework; sourceTree = SOURCE_ROOT; };
 		6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = TWCommonMoudle/AlicloudUtils.framework; sourceTree = SOURCE_ROOT; };
 		6CB5EBF71F0CECA700DBE10C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = TWCommonMoudle/AlipaySDK.framework; sourceTree = SOURCE_ROOT; };
+		6CB5EBFE1F0CFE6E00DBE10C /* TW_UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_UserModel.h; path = TWCommonMoudle/TW_UserModel.h; sourceTree = SOURCE_ROOT; };
+		6CB5EBFF1F0CFE6E00DBE10C /* TW_UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_UserModel.m; path = TWCommonMoudle/TW_UserModel.m; sourceTree = SOURCE_ROOT; };
+		6CB5EC001F0CFE6E00DBE10C /* TW_UserModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_UserModel2.h; path = TWCommonMoudle/TW_UserModel2.h; sourceTree = SOURCE_ROOT; };
+		6CB5EC011F0CFE6E00DBE10C /* TW_UserModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_UserModel2.m; path = TWCommonMoudle/TW_UserModel2.m; sourceTree = SOURCE_ROOT; };
 		E06D3C20AC87BC516A9E41F3 /* Pods-TWCommonMoudleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWCommonMoudleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +166,7 @@
 		6CB36E991F03A5AD000128FB /* TW_CommonPage */ = {
 			isa = PBXGroup;
 			children = (
+				6CB5EBFD1F0CFE4700DBE10C /* model */,
 				6CB5EBF21F0CEA0E00DBE10C /* framework */,
 				6CB5EBEB1F0CE65300DBE10C /* network */,
 				6CB5EBE91F0CD4ED00DBE10C /* Resource */,
@@ -217,6 +224,17 @@
 				6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		6CB5EBFD1F0CFE4700DBE10C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5EBFE1F0CFE6E00DBE10C /* TW_UserModel.h */,
+				6CB5EBFF1F0CFE6E00DBE10C /* TW_UserModel.m */,
+				6CB5EC001F0CFE6E00DBE10C /* TW_UserModel2.h */,
+				6CB5EC011F0CFE6E00DBE10C /* TW_UserModel2.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		943A33545FE917A11C54B59A /* Pods */ = {
@@ -363,6 +381,8 @@
 				6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */,
 				6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */,
 				6CB5EBE01F0CD0A500DBE10C /* NSData+CommonCrypto.m in Sources */,
+				6CB5EC031F0CFE6E00DBE10C /* TW_UserModel2.m in Sources */,
+				6CB5EC021F0CFE6E00DBE10C /* TW_UserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
