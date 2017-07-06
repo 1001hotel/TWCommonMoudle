@@ -37,6 +37,7 @@ typedef void (^loadingBlock)();
 + (MJRefreshNormalHeader *)refreshHeaderWithCallback:(refreshBlock)result;
 + (MJRefreshBackStateFooter *)loadingFooterWithCallback:(loadingBlock)result;
 
+
 @end
 
 
