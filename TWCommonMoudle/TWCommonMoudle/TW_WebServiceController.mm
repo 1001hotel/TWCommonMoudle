@@ -70,6 +70,7 @@ static HttpDnsService *httpdns;
     [manager setSecurityPolicy:securityPolicy];
     return manager;
 }
+
 + (NSString *)errorDescriptionWithError:(NSError *)error{
     NSString *errorStr = @"网络或其他错误";
     NSString *str = [NSString stringWithFormat:@"%@", [error.userInfo objectForKey:@"NSLocalizedDescription"]];
@@ -78,8 +79,6 @@ static HttpDnsService *httpdns;
     }
     return errorStr;
 }
-
-
 + (NSMutableDictionary *)requerstContentWith:(NSDictionary *)dic{
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];

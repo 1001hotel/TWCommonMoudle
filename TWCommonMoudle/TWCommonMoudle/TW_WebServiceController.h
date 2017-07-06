@@ -26,6 +26,7 @@ typedef void (^loadingBlock)();
 @interface TW_WebServiceController : NSObject
 
 
++ (NSString *)errorDescriptionWithError:(NSError *)error;
 + (NSMutableDictionary *)requerstContentWith:(NSDictionary *)dic;
 + (void)AFJSONgetWithUrl:(NSString *)url params:(NSDictionary *)params success:(successBlock)success failure:(failureBlock)failure;
 + (void)AFJSONpostWithUrl:(NSString *)url params:(NSDictionary *)params success:(successBlock)success failure:(failureBlock)failure;
