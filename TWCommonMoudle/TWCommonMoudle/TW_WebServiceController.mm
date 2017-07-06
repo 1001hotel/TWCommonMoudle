@@ -58,25 +58,6 @@ static HttpDnsService *httpdns;
     
     return upperStr;
 }
-+ (NSMutableDictionary *)requerstContentWith:(NSDictionary *)dic{
-    
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString *app_build = [infoDictionary objectForKey:@"CFBundleVersion"];
-
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:dic];
-    [result setObject:@"ios" forKey:@"client"];
-    [result setObject:[NSString stringWithFormat:@"%@.%@", app_Version, app_build] forKey:@"version"];
-    [result setObject:[Utilities uniqueID] forKey:@"mac"];
-//    [result setObject:preferredLang forKey:@"request_locale"];
-    [result setObject:[Utilities nowString] forKey:@"timestamp"];
-    
-    NSString *sign = [self getSign: result];
-    
-    
-    [result setObject:sign forKey:@"sign"];
-    return result;
-}
 + (AFHTTPSessionManager *)AFJSONoperationmanager{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"text/html",@"application/json",@"text/plain",@"application/xhtml+xml",@"application/xml",@"text/json",@"text/javascript",nil];
@@ -99,7 +80,25 @@ static HttpDnsService *httpdns;
 }
 
 
-
++ (NSMutableDictionary *)requerstContentWith:(NSDictionary *)dic{
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *app_build = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:dic];
+    [result setObject:@"ios" forKey:@"client"];
+    [result setObject:[NSString stringWithFormat:@"%@.%@", app_Version, app_build] forKey:@"version"];
+    [result setObject:[Utilities uniqueID] forKey:@"mac"];
+    //    [result setObject:preferredLang forKey:@"request_locale"];
+    [result setObject:[Utilities nowString] forKey:@"timestamp"];
+    
+    NSString *sign = [self getSign: result];
+    
+    
+    [result setObject:sign forKey:@"sign"];
+    return result;
+}
 + (void)AFJSONgetWithUrl:(NSString *)url params:(NSDictionary *)params success:(successBlock)success failure:(failureBlock)failure{
     
   
