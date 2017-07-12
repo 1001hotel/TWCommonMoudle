@@ -21,7 +21,7 @@
 		6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDE1F0CD0A500DBE10C /* Utilities.mm */; };
 		6CB5EBE61F0CD45E00DBE10C /* CLLocation+YCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */; };
 		6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */; };
-		6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */; };
+		6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBED1F0CE66700DBE10C /* TW_WebServiceCommon.mm */; };
 		6CB5EBF11F0CE67B00DBE10C /* TextFontFit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBF01F0CE67B00DBE10C /* TextFontFit.m */; };
 		6CB5EBF51F0CEA1D00DBE10C /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */; };
 		6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */; };
@@ -67,8 +67,8 @@
 		6CB5EBE41F0CD45E00DBE10C /* CLLocation+YCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocation+YCLocation.h"; path = "TWCommonMoudle/CLLocation+YCLocation.h"; sourceTree = SOURCE_ROOT; };
 		6CB5EBE51F0CD45E00DBE10C /* CLLocation+YCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+YCLocation.m"; path = "TWCommonMoudle/CLLocation+YCLocation.m"; sourceTree = SOURCE_ROOT; };
 		6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_WebServiceController.h; path = TWCommonMoudle/TW_WebServiceController.h; sourceTree = SOURCE_ROOT; };
-		6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TW_WebServiceController.mm; path = TWCommonMoudle/TW_WebServiceController.mm; sourceTree = SOURCE_ROOT; };
+		6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_WebServiceCommon.h; path = TWCommonMoudle/TW_WebServiceCommon.h; sourceTree = SOURCE_ROOT; };
+		6CB5EBED1F0CE66700DBE10C /* TW_WebServiceCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TW_WebServiceCommon.mm; path = TWCommonMoudle/TW_WebServiceCommon.mm; sourceTree = SOURCE_ROOT; };
 		6CB5EBEF1F0CE67B00DBE10C /* TextFontFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFontFit.h; path = TWCommonMoudle/TextFontFit.h; sourceTree = SOURCE_ROOT; };
 		6CB5EBF01F0CE67B00DBE10C /* TextFontFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFontFit.m; path = TWCommonMoudle/TextFontFit.m; sourceTree = SOURCE_ROOT; };
 		6CB5EBF31F0CEA1D00DBE10C /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudHttpDNS.framework; path = TWCommonMoudle/AlicloudHttpDNS.framework; sourceTree = SOURCE_ROOT; };
@@ -210,8 +210,8 @@
 		6CB5EBEB1F0CE65300DBE10C /* network */ = {
 			isa = PBXGroup;
 			children = (
-				6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceController.h */,
-				6CB5EBED1F0CE66700DBE10C /* TW_WebServiceController.mm */,
+				6CB5EBEC1F0CE66700DBE10C /* TW_WebServiceCommon.h */,
+				6CB5EBED1F0CE66700DBE10C /* TW_WebServiceCommon.mm */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceController.mm in Sources */,
+				6CB5EBEE1F0CE66700DBE10C /* TW_WebServiceCommon.mm in Sources */,
 				6CB36E8A1F039D95000128FB /* ViewController.m in Sources */,
 				6CB36E871F039D95000128FB /* AppDelegate.m in Sources */,
 				6CB5EBF11F0CE67B00DBE10C /* TextFontFit.m in Sources */,

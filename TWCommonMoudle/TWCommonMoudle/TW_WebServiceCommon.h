@@ -1,5 +1,5 @@
 //
-//  TW_WebServiceController.h
+//  TW_WebServiceCommon.h
 //  TourWay
 //
 //  Created by luomeng on 15/11/17.
@@ -23,7 +23,7 @@ typedef void (^loadingBlock)();
 
 
 
-@interface TW_WebServiceController : NSObject
+@interface TW_WebServiceCommon : NSObject
 
 
 + (NSString *)errorDescriptionWithError:(NSError *)error;

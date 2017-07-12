@@ -1,12 +1,12 @@
 //
-//  TW_WebServiceController.m
+//  TW_WebServiceCommon.m
 //  TourWay
 //
 //  Created by luomeng on 15/11/17.
 //  Copyright © 2015年 OneThousandandOneNights. All rights reserved.
 //
 
-#import "TW_WebServiceController.h"
+#import "TW_WebServiceCommon.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import "Utilities.h"
@@ -18,7 +18,7 @@ typedef void (^failureBlock)(NSError *error);
 static HttpDnsService *httpdns;
 
 
-@implementation TW_WebServiceController
+@implementation TW_WebServiceCommon
 
 
 
