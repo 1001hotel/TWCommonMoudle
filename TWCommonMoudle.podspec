@@ -11,31 +11,11 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "xurenyan" => "812610313@qq.com" }
   s.platform     = :ios, "8.0"
-  #s.requires_arc = true
+  s.requires_arc = true
   s.source       = { :git => "https://github.com/1001hotel/TWCommonMoudle.git", :tag => s.version.to_s }
 
-  #s.source_files  = "TWCommonMoudle/TWCommonMoudle/*.{h,m,mm}"
+  s.source_files  = "TWCommonMoudle/TWCommonMoudle/*.{h,m,mm}"
 
-s.default_subspec = 'All'
-  s.subspec 'All' do |spec|
-    spec.ios.dependency 'TWCommonMoudle/TWCommonMoudle/ARC'
-    spec.ios.dependency 'TWCommonMoudle/TWCommonMoudle/MRC'
-  end
-s.subspec 'MRC' do |spec|
-    spec.requires_arc            = false
-    spec.source_files = [
-        'TWCommonMoudle/TWCommonMoudle/ARC/*.{h,mm,m}'
-    ]
-    
-  end
-
-s.subspec 'MRC' do |spec|
-    spec.requires_arc            = true
-    spec.source_files = [
-        'TWCommonMoudle/TWCommonMoudle/MRC/*.{h,mm,m}'
-    ]
-    
-  end
 
 
   s.vendored_frameworks = "TWCommonMoudle/TWCommonMoudle/AlicloudUtils.framework", "TWCommonMoudle/TWCommonMoudle/AlicloudHttpDNS.framework", "TWCommonMoudle/TWCommonMoudle/AlipaySDK.framework"
