@@ -68,15 +68,17 @@ cancelCompleteSelector:(SEL)sel2
             _delegate = delegate;
             if (completion) {
                 if (_alertMessageConfirmCompletionBlock) {
+                    Block_release(_alertMessageConfirmCompletionBlock);
                     _alertMessageConfirmCompletionBlock = nil;
                 }
-                _alertMessageConfirmCompletionBlock = completion;
+                _alertMessageConfirmCompletionBlock = Block_copy(completion);
             }
             if (completion2) {
                 if (_alertMessageCancelCompletionBlock) {
+                    Block_release(_alertMessageCancelCompletionBlock);
                     _alertMessageCancelCompletionBlock = nil;
                 }
-                _alertMessageCancelCompletionBlock = completion2;
+                _alertMessageCancelCompletionBlock = Block_copy(completion2);
             }
         }
     }
@@ -101,42 +103,47 @@ continueCompletion:(void (^)(void))completion3
             _delegate = delegate;
             if (completion) {
                 if (_alertMessageConfirmCompletionBlock) {
+                    Block_release(_alertMessageConfirmCompletionBlock);
                     _alertMessageConfirmCompletionBlock = nil;
                 }
-                _alertMessageConfirmCompletionBlock = completion;
+                _alertMessageConfirmCompletionBlock = Block_copy(completion);
             }
             if (completion2) {
                 if (_alertMessageCancelCompletionBlock) {
+                    Block_release(_alertMessageCancelCompletionBlock);
                     _alertMessageCancelCompletionBlock = nil;
                 }
-                _alertMessageCancelCompletionBlock = completion2;
+                _alertMessageCancelCompletionBlock = Block_copy(completion2);
             }
             if (completion3) {
                 if (_alertMessageContinueCompletionBlock) {
-
+                    Block_release(_alertMessageContinueCompletionBlock);
                     _alertMessageContinueCompletionBlock = nil;
                 }
-                _alertMessageContinueCompletionBlock = completion3;
+                _alertMessageContinueCompletionBlock = Block_copy(completion3);
             }
         }
     }
     return self;
 }
-//-(void)dealloc{
-//    
-//    if (_alertMessageConfirmCompletionBlock) {
-//        Block_release((__bridge void *)_alertMessageConfirmCompletionBlock);
-//        _alertMessageConfirmCompletionBlock = nil;
-//    }
-//    if (_alertMessageCancelCompletionBlock) {
-//        Block_release((__bridge void *)_alertMessageCancelCompletionBlock);
-//        _alertMessageCancelCompletionBlock = nil;
-//    }
-//    if (_alertMessageContinueCompletionBlock) {
-//        Block_release((__bridge void *)_alertMessageContinueCompletionBlock);
-//        _alertMessageContinueCompletionBlock = nil;
-//    }
-//}
+-(void)dealloc{
+    
+    if (_alertMessageConfirmCompletionBlock) {
+        Block_release(_alertMessageConfirmCompletionBlock);
+        _alertMessageConfirmCompletionBlock = nil;
+    }
+    if (_alertMessageCancelCompletionBlock) {
+        Block_release(_alertMessageCancelCompletionBlock);
+        _alertMessageCancelCompletionBlock = nil;
+    }
+    if (_alertMessageContinueCompletionBlock) {
+        Block_release(_alertMessageContinueCompletionBlock);
+        _alertMessageContinueCompletionBlock = nil;
+    }
+    [_alertView release];
+    [self release];
+    [super dealloc];
+}
 
 
 #pragma mark
@@ -144,12 +151,14 @@ continueCompletion:(void (^)(void))completion3
 -(void)show{
 
     [_alertView show];
+    [self retain];
 }
 -(void)showForSeconds:(float)sec{
 
     [_alertView show];
     [self performSelector:@selector(_doneShowAlert) withObject:nil afterDelay:sec];
     _autoCompletion = YES;
+    [self retain];
 }
 
 
@@ -171,11 +180,7 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageConfirmCompletionBlock();
                     }
                     if (_alertMessageConfirmCompleteSelector) {
-                       
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                         [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
                     }
                 }
                 else if (_alertType == AlertMessageTypeDecision) {
@@ -184,11 +189,7 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageCancelCompletionBlock();
                     }
                     if (_alertMessageCancelCompleteSelector) {
-                     
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-   [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
+                        [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
                     }
                 }
             }
@@ -205,10 +206,7 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                             [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
                         }
                     }
                 }
@@ -221,10 +219,7 @@ continueCompletion:(void (^)(void))completion3
                         _alertMessageConfirmCompletionBlock();
                     }
                     if (_alertMessageConfirmCompleteSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                         [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
                     }
                 }
             }
@@ -253,12 +248,7 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
- [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
-
-                           
+                            [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
                         }
                     }
                     else if (_alertType == AlertMessageTypeDecision) {
@@ -267,12 +257,7 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageCancelCompletionBlock();
                         }
                         if (_alertMessageCancelCompleteSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                           [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
-
-                            
+                            [_delegate performSelector:_alertMessageCancelCompleteSelector withObject:nil];
                         }
                     }
                 }
@@ -284,11 +269,7 @@ continueCompletion:(void (^)(void))completion3
                             _alertMessageConfirmCompletionBlock();
                         }
                         if (_alertMessageConfirmCompleteSelector) {
-                            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                             [_delegate performSelector:_alertMessageConfirmCompleteSelector withObject:nil];
-#pragma clang diagnostic pop
                         }
                     }
                 }

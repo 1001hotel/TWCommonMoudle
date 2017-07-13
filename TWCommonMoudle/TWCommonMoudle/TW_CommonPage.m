@@ -526,7 +526,7 @@ UIGestureRecognizerDelegate
     //keep this here to response alertMessage block or selector action
 }
 
-
+ 
 
 #pragma mark -
 #pragma mark - emptyShow

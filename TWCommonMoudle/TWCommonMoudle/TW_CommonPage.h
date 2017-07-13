@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @class FreshLoadingView;
 @interface TW_CommonPage : UIViewController

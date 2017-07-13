@@ -14,7 +14,6 @@
 		6CB36E8F1F039D95000128FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB36E8E1F039D95000128FB /* Assets.xcassets */; };
 		6CB36E921F039D95000128FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB36E901F039D95000128FB /* LaunchScreen.storyboard */; };
 		6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */; };
-		6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E9E1F03A6D9000128FB /* AlertMessage.m */; };
 		6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */; };
 		6CB5EBE01F0CD0A500DBE10C /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDA1F0CD0A500DBE10C /* NSData+CommonCrypto.m */; };
 		6CB5EBE11F0CD0A500DBE10C /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBDC1F0CD0A500DBE10C /* NSString+Base64.m */; };
@@ -53,8 +52,6 @@
 		6CB36E931F039D95000128FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB36E9A1F03A5C1000128FB /* TW_CommonPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_CommonPage.h; path = TWCommonMoudle/TW_CommonPage.h; sourceTree = SOURCE_ROOT; };
 		6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_CommonPage.m; path = TWCommonMoudle/TW_CommonPage.m; sourceTree = SOURCE_ROOT; };
-		6CB36E9D1F03A6D9000128FB /* AlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertMessage.h; path = TWCommonMoudle/AlertMessage.h; sourceTree = SOURCE_ROOT; };
-		6CB36E9E1F03A6D9000128FB /* AlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertMessage.m; path = TWCommonMoudle/AlertMessage.m; sourceTree = SOURCE_ROOT; };
 		6CB5EBD71F0CD0A500DBE10C /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "TWCommonMoudle/NSData+Base64.h"; sourceTree = SOURCE_ROOT; };
 		6CB5EBD81F0CD0A500DBE10C /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "TWCommonMoudle/NSData+Base64.m"; sourceTree = SOURCE_ROOT; };
 		6CB5EBD91F0CD0A500DBE10C /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CommonCrypto.h"; path = "TWCommonMoudle/NSData+CommonCrypto.h"; sourceTree = SOURCE_ROOT; };
@@ -175,8 +172,6 @@
 				6C857B6B1F0B3A5100894A9D /* TWCommonDefine.h */,
 				6CB36E9A1F03A5C1000128FB /* TW_CommonPage.h */,
 				6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */,
-				6CB36E9D1F03A6D9000128FB /* AlertMessage.h */,
-				6CB36E9E1F03A6D9000128FB /* AlertMessage.m */,
 			);
 			name = TW_CommonPage;
 			sourceTree = "<group>";
@@ -375,7 +370,6 @@
 				6CB5EBF11F0CE67B00DBE10C /* TextFontFit.m in Sources */,
 				6CB5EBE21F0CD0A500DBE10C /* Utilities.mm in Sources */,
 				6CB36E9C1F03A5C1000128FB /* TW_CommonPage.m in Sources */,
-				6CB36E9F1F03A6D9000128FB /* AlertMessage.m in Sources */,
 				6CB5EBE11F0CD0A500DBE10C /* NSString+Base64.m in Sources */,
 				6CB36E841F039D95000128FB /* main.m in Sources */,
 				6CB5EBDF1F0CD0A500DBE10C /* NSData+Base64.m in Sources */,

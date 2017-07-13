@@ -39,6 +39,7 @@ PODS:
     - MOBFoundation
   - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.0.1):
     - MOBFoundation
+  - TWAlertMessage (1.0.1)
   - TWFreshLoadingView (0.8.0)
 
 DEPENDENCIES:
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/QQ
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo
   - ShareSDK3/ShareSDKPlatforms/WeChat
+  - TWAlertMessage (~> 1.0.1)
   - TWFreshLoadingView (~> 0.8.0)
 
 SPEC CHECKSUMS:
@@ -65,8 +67,9 @@ SPEC CHECKSUMS:
   Qiniu: 77a3dba411556a383d72d17e842345a9d4c83252
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   ShareSDK3: e0465c9ffdf806ab97c27f4397fd7deca600ede9
+  TWAlertMessage: 7ae1e20e70c2f81ff0e69de8a8877819b3162571
   TWFreshLoadingView: e6f6b857455fc0dc52986f229af29b78c6536018
 
-PODFILE CHECKSUM: 3ba2aaa723bbfa4ccb018a3ddddd9ee754031508
+PODFILE CHECKSUM: 22aa13b5a36f850067b5e244188a3303635592f8
 
 COCOAPODS: 1.2.1

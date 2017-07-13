@@ -40,6 +40,8 @@ Pod::Spec.new do |s|
  s.dependency "BaiduMobStat", "~> 4.5.0"
 
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
+ s.dependency "TWAlertMessage", "~> 1.0.1"
+
 
 
 end

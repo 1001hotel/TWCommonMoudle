@@ -20,6 +20,7 @@ target 'TWCommonMoudleDemo' do
     pod 'SDWebImage', '~> 3.7.3'
     
     pod 'TWFreshLoadingView', '~> 0.8.0'
+    pod 'TWAlertMessage', '~> 1.0.1'
 
 
 end

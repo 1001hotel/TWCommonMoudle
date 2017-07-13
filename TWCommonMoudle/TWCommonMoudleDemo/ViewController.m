@@ -13,6 +13,16 @@
 @end
 
 @implementation ViewController
+- (IBAction)_test:(id)sender {
+    
+    [self alertMessageWithSelectable:@"nihao" completion:^{
+        
+        NSLog(@"hao");
+    } cancel:^{
+        
+         NSLog(@"buhao");
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
