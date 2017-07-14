@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
 
   s.vendored_frameworks = "TWCommonMoudle/TWCommonMoudle/AlicloudUtils.framework", "TWCommonMoudle/TWCommonMoudle/AlicloudHttpDNS.framework", "TWCommonMoudle/TWCommonMoudle/AlipaySDK.framework"
+
  #s.vendored_libraries = '/Pod/Classes/*.a'
  #s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js"
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics", "MapKit"
