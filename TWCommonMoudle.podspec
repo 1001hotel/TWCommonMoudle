@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWCommonMoudle"
-  s.version      = "1.0.5"
+  s.version      = "1.1.0"
   s.summary      = "A tuyu common  used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
  s.dependency "BaiduMobStat", "~> 4.5.0"
 
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
- s.dependency "TWAlertMessage", "~> 1.0.1"
+ s.dependency "TWAlertMessage", "~> 1.1.0"
 
 
 
