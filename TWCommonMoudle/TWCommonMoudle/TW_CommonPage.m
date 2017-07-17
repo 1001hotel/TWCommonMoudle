@@ -95,6 +95,7 @@ UIGestureRecognizerDelegate
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     //*/
 #endif
+    _keyBoardHeight = 216;
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -515,7 +516,7 @@ UIGestureRecognizerDelegate
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
     
-    _keyBoardHeight = 0;
+    _keyBoardHeight = keyboardRect.size.height;
 }
 
 
