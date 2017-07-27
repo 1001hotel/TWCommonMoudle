@@ -1333,6 +1333,8 @@
     if ([platform isEqualToString:@"iPod3,1"])      return @"iPod Touch (3 Gen)";
     if ([platform isEqualToString:@"iPod4,1"])      return @"iPod Touch (4 Gen)";
     if ([platform isEqualToString:@"iPod5,1"])      return @"iPod Touch (5 Gen)";
+    if ([platform isEqualToString:@"iPod7,1"])      return @"iPod Touch (6 Gen)";
+    
     
     if ([platform isEqualToString:@"iPad1,1"])      return @"iPad";
     if ([platform isEqualToString:@"iPad1,2"])      return @"iPad 3G";
