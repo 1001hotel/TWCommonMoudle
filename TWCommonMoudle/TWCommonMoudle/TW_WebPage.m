@@ -74,7 +74,11 @@ UIWebViewDelegate
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [self stopLoading];
-    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    if (self.navigationItem.title.length == 0) {
+        
+        self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    }
     if ([_webView canGoBack]) {
         self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor whiteColor]], nil];
     }
