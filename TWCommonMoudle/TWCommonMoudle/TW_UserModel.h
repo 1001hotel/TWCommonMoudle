@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSString *forwardNumber;
 @property (nonatomic, strong) NSString *creatTime;
 @property (nonatomic, assign) BOOL isExpert;
+@property (nonatomic, assign) BOOL isHotel;
 @property (nonatomic, strong) NSArray *productions;
 @property (nonatomic, strong) NSArray *activities;
 @property (nonatomic, strong) NSArray *circles;
