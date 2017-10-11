@@ -75,8 +75,8 @@ UIGestureRecognizerDelegate
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:51 / 255.0 green:51 / 255.0 blue:51 / 255.0 alpha:1],NSForegroundColorAttributeName,[UIFont systemFontOfSize:17],NSFontAttributeName,nil]];
     [self netWorkMonitoring];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self  selector:@selector(keyBoardShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(KeyBoardHidden:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self  selector:@selector(keyBoardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(KeyBoardHidden:) name:UIKeyboardWillHideNotification object:nil];
     
 #ifdef INTERNAL_SERVER_DEBUG_MODE
     //*
@@ -95,7 +95,8 @@ UIGestureRecognizerDelegate
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     //*/
 #endif
-    _keyBoardHeight = 216;
+    //    _keyBoardHeight = 216;
+    _keyBoardHeight = 0;
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -187,7 +188,7 @@ UIGestureRecognizerDelegate
         return nil;
     }
     float imgWidthHeightRatio = img.size.width / img.size.height;
-    btn.frame = CGRectMake(10, 0, imgWidthHeightRatio * NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
+    btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
     
@@ -199,7 +200,7 @@ UIGestureRecognizerDelegate
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *img = [UIImage imageNamed:imgName];
     float imgWidthHeightRatio = img.size.width / img.size.height;
-    btn.frame = CGRectMake(0, 0, imgWidthHeightRatio * NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
+    btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
     
@@ -214,7 +215,7 @@ UIGestureRecognizerDelegate
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *img = [UIImage imageNamed:imgName];
     float imgWidthHeightRatio = img.size.width / img.size.height;
-    btn.frame = CGRectMake(0, 0, imgWidthHeightRatio * NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
+    btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
     
@@ -390,8 +391,10 @@ UIGestureRecognizerDelegate
     if (delay<=0) {
         delay = 2.0f;
     }
-    delay = 1.5f;
-    
+    if ([message isEqualToString:@""]) {
+        
+        return;
+    }
     
     CGFloat gapHeight = hundredLenthForIPhone6s;
     __block UIView *alertDefineView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.25 * 0.5, self.view.frame.size.height - gapHeight - _keyBoardHeight, SCREEN_WIDTH * 0.75, 30)];
@@ -438,7 +441,7 @@ UIGestureRecognizerDelegate
                 alertLabel =nil;
                 [alertDefineView removeFromSuperview];
                 [alertLabel removeFromSuperview];
-            }];;
+            }];
         });
     }];
 }
@@ -446,8 +449,11 @@ UIGestureRecognizerDelegate
     if (delay<=0) {
         delay = 2.0f;
     }
-    delay = 2.0f;
     
+    if ([message isEqualToString:@""]) {
+        
+        return;
+    }
     CGFloat gapHeight = hundredLenthForIPhone6s;
     
     __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*0.25*0.5, self.view.frame.size.height-gapHeight-_keyBoardHeight, SCREEN_WIDTH*0.75, 30)];
@@ -516,7 +522,9 @@ UIGestureRecognizerDelegate
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
     
-    _keyBoardHeight = keyboardRect.size.height;
+    //    _keyBoardHeight = keyboardRect.size.height;
+    _keyBoardHeight = 0;
+    
 }
 
 
@@ -527,22 +535,24 @@ UIGestureRecognizerDelegate
     //keep this here to response alertMessage block or selector action
 }
 
- 
+
 
 #pragma mark -
 #pragma mark - emptyShow
 - (void)emptyShowWithBoolIsDataAvailabel:(BOOL)isDataAvailable andMessage:(NSString *)message andInteraction:(BOOL)Ture{
+    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    if (_whiteView != nil) {
-//        [_whiteView removeFromSuperview];
-//        _whiteView = nil;
-//    }
-//    if (_emptyView != nil) {
-//        [_emptyView removeFromSuperview];
-//        _emptyView = nil;
-//    }
+    //    if (_whiteView != nil) {
+    //        [_whiteView removeFromSuperview];
+    //        _whiteView = nil;
+    //    }
+    //    if (_emptyView != nil) {
+    //        [_emptyView removeFromSuperview];
+    //        _emptyView = nil;
+    //    }
     
     if (_whiteView == nil) {
+        
         _whiteView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
         _whiteView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:_whiteView];
@@ -550,6 +560,7 @@ UIGestureRecognizerDelegate
     
     //    CGRect windowRect = window.frame;
     if (_emptyView == nil) {
+        
         _emptyView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 64)];
         _emptyView.center = CGPointMake(window.center.x, window.center.y-64);
         _emptyView.backgroundColor = [UIColor clearColor];
@@ -560,23 +571,40 @@ UIGestureRecognizerDelegate
         emptyBoxImageView.backgroundColor = [UIColor clearColor];
         [_emptyView addSubview:emptyBoxImageView];
         if (message) {
-            UILabel *massageLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 0.25, emptyBoxImageView.frame.origin.y+emptyBoxImageView.frame.size.height+hundredLenthForIPhone6s * 0.2, SCREEN_WIDTH * 0.5, 30)];
-            massageLabel.text = message;
+            
+            UILabel *massageLabel = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - hundredLenthForIPhone6s *2.40) * 0.5, emptyBoxImageView.frame.origin.y+emptyBoxImageView.frame.size.height+hundredLenthForIPhone6s * 0.2, hundredLenthForIPhone6s* 2.40, 30)];
             massageLabel.numberOfLines = 0;
-            massageLabel.textColor = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1];
-            massageLabel.font = [UIFont systemFontOfSize:15];
+            massageLabel.font = [UIFont systemFontOfSize:4];
+            massageLabel.textColor = [UIColor colorWithRed:153 / 255.0 green:153 / 255.0 blue:153 / 255.0 alpha:1];
             massageLabel.textAlignment = NSTextAlignmentCenter;
             massageLabel.backgroundColor = [UIColor clearColor];
             
-            CGRect massageRect = [message boundingRectWithSize:CGSizeMake(massageLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = 6;
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            
+            NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:message];
+            [attributeString addAttribute:NSParagraphStyleAttributeName
+                                    value:paragraphStyle
+                                    range:NSMakeRange(0, message.length)];
+            
+            [attributeString addAttribute:NSFontAttributeName
+                                    value:[UIFont systemFontOfSize:hundredLenthForIPhone6s *0.15]
+                                    range:NSMakeRange(0, message.length)];
+            
+            massageLabel.attributedText = attributeString;
+            
+            CGRect massageRect = [attributeString boundingRectWithSize:CGSizeMake(massageLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+            
             emptyBoxImageView.center = CGPointMake(_emptyView.center.x, _emptyView.center.y-_emptyView.frame.origin.y-(massageRect.size.height+hundredLenthForIPhone6s * 0.2) * 0.5);
-            massageLabel.frame = CGRectMake(SCREEN_WIDTH * 0.25, emptyBoxImageView.frame.origin.y + emptyBoxImageView.frame.size.height + hundredLenthForIPhone6s * 0.2, SCREEN_WIDTH * 0.5, massageRect.size.height);
+            massageLabel.frame = CGRectMake((SCREEN_WIDTH - hundredLenthForIPhone6s *2.40) * 0.5, emptyBoxImageView.frame.origin.y + emptyBoxImageView.frame.size.height + hundredLenthForIPhone6s * 0.2, hundredLenthForIPhone6s *2.40, massageRect.size.height);
             
             if (massageLabel.frame.origin.y+massageLabel.frame.size.height > _emptyView.frame.size.height) {
+                
                 _emptyView.frame = CGRectMake(0, 0, SCREEN_WIDTH, massageLabel.frame.origin.y+massageLabel.frame.size.height);
                 _emptyView.center = CGPointMake(window.center.x, window.center.y - 64);
                 emptyBoxImageView.center = CGPointMake(_emptyView.center.x, _emptyView.center.y - _emptyView.frame.origin.y - (massageRect.size.height + hundredLenthForIPhone6s * 0.2) * 0.5);
-                massageLabel.frame = CGRectMake(SCREEN_WIDTH * 0.25, emptyBoxImageView.frame.origin.y + emptyBoxImageView.frame.size.height + hundredLenthForIPhone6s * 0.2, SCREEN_WIDTH * 0.5, massageRect.size.height);
+                massageLabel.frame = CGRectMake((SCREEN_WIDTH - hundredLenthForIPhone6s *2.40) * 0.5, emptyBoxImageView.frame.origin.y + emptyBoxImageView.frame.size.height + hundredLenthForIPhone6s * 0.2,  hundredLenthForIPhone6s *2.40, massageRect.size.height);
             }
             [_emptyView addSubview:massageLabel];
         }
@@ -585,6 +613,7 @@ UIGestureRecognizerDelegate
     _emptyView.hidden = isDataAvailable;
     _whiteView.hidden = isDataAvailable;
     if (isDataAvailable) {
+        
         [_emptyView removeFromSuperview];
         _emptyView = nil;
         [_whiteView removeFromSuperview];
@@ -781,7 +810,7 @@ UIGestureRecognizerDelegate
     if (key == nil) {
         return object;
     }
-
+    
     if (dict == nil || dict.count == 0 || [dict isKindOfClass:[NSNull class]]) {
         object = @"";
     }
@@ -814,7 +843,7 @@ UIGestureRecognizerDelegate
         object = YES;
     }
     return object;
-
+    
 }
 
 #pragma mark - 滑动开始触发事件

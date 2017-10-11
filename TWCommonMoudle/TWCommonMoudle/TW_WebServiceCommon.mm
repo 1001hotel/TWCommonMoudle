@@ -31,21 +31,27 @@ static HttpDnsService *httpdns;
     
     NSMutableArray *sortedArray = [NSMutableArray arrayWithArray:[keys sortedArrayUsingDescriptors:sortDescriptors]];
     if ([sortedArray containsObject:@"version"]) {
+        
         [sortedArray removeObject:@"version"];
     }
     if ([sortedArray containsObject:@"sign"]) {
+        
         [sortedArray removeObject:@"sign"];
     }
     if ([sortedArray containsObject:@"mac"]) {
+        
         [sortedArray removeObject:@"mac"];
     }
     if ([sortedArray containsObject:@"request_locale"]) {
+        
         [sortedArray removeObject:@"request_locale"];
     }
     
     NSMutableArray *keyValueStrArr = [NSMutableArray array];
     for (NSString *key in sortedArray) {
+        
         if ([NSString stringWithFormat:@"%@", [dic objectForKey:key]].length > 0 ) {
+            
             NSString *keyValueStr = [NSString stringWithFormat:@"%@=%@", key, [dic objectForKey:key]];
             [keyValueStrArr addObject:keyValueStr];
             
@@ -70,10 +76,10 @@ static HttpDnsService *httpdns;
     [manager setSecurityPolicy:securityPolicy];
     return manager;
 }
-
 + (NSString *)errorDescriptionWithError:(NSError *)error{
+    
     NSString *errorStr = @"网络或其他错误";
-    NSString *str = [NSString stringWithFormat:@"%@", [error.userInfo objectForKey:@"NSLocalizedDescription"]];
+    NSString *str = [error.userInfo objectForKey:@"NSLocalizedDescription"];
     if (str.length > 0) {
         errorStr = str;
     }
@@ -89,23 +95,18 @@ static HttpDnsService *httpdns;
     [result setObject:@"ios" forKey:@"client"];
     [result setObject:[NSString stringWithFormat:@"%@.%@", app_Version, app_build] forKey:@"version"];
     [result setObject:[Utilities uniqueID] forKey:@"mac"];
-    //    [result setObject:preferredLang forKey:@"request_locale"];
     [result setObject:[Utilities nowString] forKey:@"timestamp"];
     
     NSString *sign = [self getSign: result];
-    
-    
     [result setObject:sign forKey:@"sign"];
     return result;
 }
 + (void)AFJSONgetWithUrl:(NSString *)url params:(NSDictionary *)params success:(successBlock)success failure:(failureBlock)failure{
     
-  
     AFHTTPSessionManager *manager = [self AFJSONoperationmanager];
     
     __block NSString *selfUrl = url;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         
         @try {
             ///*
@@ -127,21 +128,23 @@ static HttpDnsService *httpdns;
         } @catch (NSException *exception) {
             
             
-            
         } @finally {
             
             [manager GET:selfUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
                 if (success) {
+                    
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
                 if (failure) {
+                    
                     failure(error);
                 }
             }];
         }
     });
-    
 }
 + (void)AFJSONpostWithUrl:(NSString *)url params:(NSDictionary *)params success:(successBlock)success failure:(failureBlock)failure{
     
@@ -175,19 +178,21 @@ static HttpDnsService *httpdns;
         } @finally {
             
             [manager POST:selfUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
                 if (success) {
+                    
                     //to be finished
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
                 if (failure) {
+                    
                     failure(error);
                 }
             }];
         }
-        
     });
-    
 }
 
 
