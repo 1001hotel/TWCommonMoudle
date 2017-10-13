@@ -41,7 +41,7 @@
     config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
     config.processPool = [[WKProcessPool alloc] init];
     
-    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 20) configuration:config];
+    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44 - 20) configuration:config];
     [self.view addSubview:_webView];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setTranslucent:NO];
@@ -53,8 +53,8 @@
 //进度条
 - (void)initProgressView{
     
-    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2)];
-    progressView.tintColor = MAINCOLOR;
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 2)];
+    progressView.tintColor = [UIColor colorWithRed:74 / 255.0 green:189 / 255.0 blue:204 / 255.0 alpha:1];
     progressView.trackTintColor = [UIColor clearColor];
     [self.view addSubview:progressView];
     self.progressView = progressView;
