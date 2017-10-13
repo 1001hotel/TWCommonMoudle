@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWCommonMoudle"
-  s.version      = "1.3.1"
+  s.version      = "1.3.2"
   s.summary      = "A tuyu common  used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = "TWCommonMoudle/TWCommonMoudle/AlicloudUtils.framework", "TWCommonMoudle/TWCommonMoudle/AlicloudHttpDNS.framework", "TWCommonMoudle/TWCommonMoudle/UTDID.framework"
 
  #s.vendored_libraries = '/Pod/Classes/*.a'
- s.resources = "TWCommonMoudle/TWCommonMoudle/*.xib"
+ #s.resources = "TWCommonMoudle/TWCommonMoudle/*.xib"
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics", "MapKit"
  s.libraries = "z", "c++"
  s.dependency "AFNetworking", "~> 3.1.0"
