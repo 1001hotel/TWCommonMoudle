@@ -13,4 +13,7 @@
 @property(nonatomic, copy)NSString *webUrl;
 @property(nonatomic, assign)BOOL isAlertModel;
 
+
+- (void)cleanCacheAndCookie;
+
 @end

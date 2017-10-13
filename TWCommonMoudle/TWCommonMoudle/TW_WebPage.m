@@ -7,39 +7,72 @@
 //
 
 #import "TW_WebPage.h"
+#import <WebKit/WebKit.h>
 
 
 @interface TW_WebPage ()
-<
-UIWebViewDelegate
->
 {
     
-    __weak IBOutlet UIWebView *_webView;
+     WKWebView *_webView;
+    
+    float _startProgress;
+
 }
+
+
+@property(strong, nonatomic) UIProgressView *progressView;
+
 
 @end
 
 @implementation TW_WebPage (private)
 
-- (void)cleanCacheAndCookie{
-    //清除cookies
-    //    NSHTTPCookie *cookie;
-    //    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    //    for (cookie in [storage cookies]){
-    //        [storage deleteCookie:cookie];
-    //    }
-    //清除UIWebView的缓存
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSURLCache * cache = [NSURLCache sharedURLCache];
-    [cache removeAllCachedResponses];
-    [cache setDiskCapacity:0];
-    [cache setMemoryCapacity:0];
+
+- (void)_initWKWebView{
+    
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    // 设置偏好设置
+    config.preferences = [[WKPreferences alloc] init];
+    // 默认为0
+    config.preferences.minimumFontSize = 10;
+    // 默认认为YES
+    config.preferences.javaScriptEnabled = YES;
+    // 在iOS上默认为NO，表示不能自动通过窗口打开
+    config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
+    config.processPool = [[WKProcessPool alloc] init];
+    
+    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 20) configuration:config];
+    [self.view addSubview:_webView];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UITabBar appearance] setTranslucent:NO];
+    
+     [_webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
+    [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+}
+//进度条
+- (void)initProgressView{
+    
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2)];
+    progressView.tintColor = MAINCOLOR;
+    progressView.trackTintColor = [UIColor clearColor];
+    [self.view addSubview:progressView];
+    self.progressView = progressView;
+    
+    float progressvalue = 0;
+    
+    while (progressvalue < 10) {
+        
+        progressvalue = arc4random() % 50;
+    }
+    
+    _startProgress = progressvalue / 100.0;
+    [self.progressView setProgress:_startProgress animated:YES];
 }
 - (void)_back{
     
     [self cleanCacheAndCookie];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [super back];
 }
 
@@ -47,17 +80,21 @@ UIWebViewDelegate
 
 @implementation TW_WebPage
 
+#pragma mark -
+#pragma mark - lifeCycle
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [self createTopLeftBack:@selector(_back)];
-    [self startLoading];
+//    self.navigationItem.leftBarButtonItem = [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"返回" titleColor:[UIColor blueColor]];
+    [self _initWKWebView];
+    [self initProgressView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
 }
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
 }
--(void)didReceiveMemoryWarning{
+- (void)didReceiveMemoryWarning{
     
     [super didReceiveMemoryWarning];
     
@@ -69,6 +106,77 @@ UIWebViewDelegate
         self.view = nil;
     }
 }
+- (void)dealloc{
+    
+    [_webView removeObserver:self forKeyPath:@"canGoBack"];
+    [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [_webView removeObserver:self forKeyPath:@"title"];
+}
+
+- (void)cleanCacheAndCookie{
+    
+    if ([[UIDevice currentDevice] systemVersion].floatValue > 9.0) {
+        
+        //        NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
+        NSSet *websiteDataTypes = [NSSet setWithArray:[NSArray arrayWithObjects:
+                                                       WKWebsiteDataTypeDiskCache,
+                                                       WKWebsiteDataTypeMemoryCache,
+                                                       WKWebsiteDataTypeOfflineWebApplicationCache,
+                                                       WKWebsiteDataTypeSessionStorage,
+                                                       WKWebsiteDataTypeLocalStorage,
+                                                       WKWebsiteDataTypeWebSQLDatabases,
+                                                       WKWebsiteDataTypeIndexedDBDatabases,
+                                                       nil]];
+        
+        NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
+            
+            // Done
+        }];
+    }
+    else{
+        
+        
+    }
+}
+
+#pragma mark -
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    
+    if (object == _webView && [keyPath isEqualToString:@"estimatedProgress"]) {
+        
+        CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
+        if (newprogress == 1) {
+            
+            [self.progressView setProgress:1.0 animated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.progressView.hidden = YES;
+                [self.progressView setProgress:0 animated:NO];
+            });
+        }
+        else {
+            
+            self.progressView.hidden = NO;
+            
+            float progress = _startProgress + (newprogress * (1 - _startProgress));
+            [self.progressView setProgress:progress animated:YES];
+        }
+    }
+    else if (object == _webView && [keyPath isEqualToString:@"title"]){
+        
+        self.navigationItem.title = _webView.title;
+    }
+    else if (object == _webView && [keyPath isEqualToString:@"canGoBack"]){
+        
+//       self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
+    }
+    else{
+        
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
 
 #pragma mark -
 #pragma mark - UIWebViewDelegate
@@ -80,7 +188,7 @@ UIWebViewDelegate
         self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     }
     if ([_webView canGoBack]) {
-        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor whiteColor]], nil];
+        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
     }
 
 }
@@ -90,16 +198,18 @@ UIWebViewDelegate
 }
 - (void)_back{
 
+    [self dismissViewControllerAnimated:YES completion:nil];
    [super back];
 }
 - (void)back{
 
     if ([_webView canGoBack]) {
+        
         [_webView goBack];
     }
     else{
     
-        [super back];
+        [self _back];
     }
 }
 

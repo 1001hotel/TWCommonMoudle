@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *ausNickname;
 @property (nonatomic, strong) NSString *ausProfilephoto;
 @property (nonatomic, assign) BOOL isMaster;
+@property (nonatomic, assign) BOOL isHotel;
 @property (nonatomic, assign) BOOL isCreateCommunity;
 @property (nonatomic, strong) NSString *abpBackgroundPicture;
 @property (nonatomic, strong) NSString *ausStatemessage;

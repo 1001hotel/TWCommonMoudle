@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6C6C992C1F3D568B00E70739 /* TW_WebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C992A1F3D568B00E70739 /* TW_WebPage.m */; };
-		6C6C992D1F3D568B00E70739 /* TW_WebPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C992B1F3D568B00E70739 /* TW_WebPage.xib */; };
 		6C9246EE1F298EBF00E910FC /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9246ED1F298EBF00E910FC /* UTDID.framework */; };
 		6CB36E841F039D95000128FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E831F039D95000128FB /* main.m */; };
 		6CB36E871F039D95000128FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB36E861F039D95000128FB /* AppDelegate.m */; };
@@ -37,7 +36,6 @@
 		577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWCommonMoudleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6C99291F3D568B00E70739 /* TW_WebPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_WebPage.h; path = TWCommonMoudle/TW_WebPage.h; sourceTree = SOURCE_ROOT; };
 		6C6C992A1F3D568B00E70739 /* TW_WebPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_WebPage.m; path = TWCommonMoudle/TW_WebPage.m; sourceTree = SOURCE_ROOT; };
-		6C6C992B1F3D568B00E70739 /* TW_WebPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TW_WebPage.xib; path = TWCommonMoudle/TW_WebPage.xib; sourceTree = SOURCE_ROOT; };
 		6C773B4B1F0BAD4D00128F3D /* UIView+ZLAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+ZLAutoLayout.h"; path = "TWCommonMoudle/UIView+ZLAutoLayout.h"; sourceTree = SOURCE_ROOT; };
 		6C773B4C1F0BAD4D00128F3D /* UIColor+ColorTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorTransfer.m"; path = "TWCommonMoudle/UIColor+ColorTransfer.m"; sourceTree = SOURCE_ROOT; };
 		6C773B4D1F0BAD4D00128F3D /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "TWCommonMoudle/UIView+Extension.m"; sourceTree = SOURCE_ROOT; };
@@ -178,7 +176,6 @@
 				6CB36E9A1F03A5C1000128FB /* TW_CommonPage.h */,
 				6C6C99291F3D568B00E70739 /* TW_WebPage.h */,
 				6C6C992A1F3D568B00E70739 /* TW_WebPage.m */,
-				6C6C992B1F3D568B00E70739 /* TW_WebPage.xib */,
 				6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */,
 			);
 			name = TW_CommonPage;
@@ -311,7 +308,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C6C992D1F3D568B00E70739 /* TW_WebPage.xib in Resources */,
 				6CB36E921F039D95000128FB /* LaunchScreen.storyboard in Resources */,
 				6CB36E8F1F039D95000128FB /* Assets.xcassets in Resources */,
 				6CB36E8D1F039D95000128FB /* Main.storyboard in Resources */,

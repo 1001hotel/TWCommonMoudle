@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TW_WebPage.h"
 
 
 @interface ViewController ()
@@ -18,6 +19,10 @@
     
     [self alertMessageWithSelectable:@"nihao" completion:^{
         
+        TW_WebPage *page = [[TW_WebPage alloc] init];
+        page.webUrl = @"https://www.baidu.com";
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:page];
+        [self presentViewController:nav animated:YES completion:nil];
         NSLog(@"hao");
     } cancel:^{
         
