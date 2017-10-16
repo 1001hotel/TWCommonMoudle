@@ -7,13 +7,16 @@
 //
 
 #import "TW_CommonPage.h"
+#import <WebKit/WebKit.h>
 
 @interface TW_WebPage : TW_CommonPage
 
-@property(nonatomic, copy)NSString *webUrl;
-@property(nonatomic, assign)BOOL isAlertModel;
+@property(nonatomic, copy) NSString *webUrl;
+@property(nonatomic, assign) BOOL isAlertModel;
+@property(nonatomic, strong) WKWebView *webView;
 
 
-- (void)cleanCacheAndCookie;
+- (void)cleanWebViewCacheAndCookie;
+- (void)cleanWebViewCache;
 
 @end

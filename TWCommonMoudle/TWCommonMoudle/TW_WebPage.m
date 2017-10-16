@@ -7,16 +7,13 @@
 //
 
 #import "TW_WebPage.h"
-#import <WebKit/WebKit.h>
-
 
 @interface TW_WebPage ()
 {
     
-     WKWebView *_webView;
     
     float _startProgress;
-
+    
 }
 
 
@@ -41,14 +38,14 @@
     config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
     config.processPool = [[WKProcessPool alloc] init];
     
-    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44 - 20) configuration:config];
-    [self.view addSubview:_webView];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44 - 20) configuration:config];
+    [self.view addSubview:self.webView];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setTranslucent:NO];
     
-     [_webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
-    [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
 }
 //进度条
 - (void)initProgressView{
@@ -71,7 +68,7 @@
 }
 - (void)_back{
     
-    [self cleanCacheAndCookie];
+    [self cleanWebViewCache];
     [self dismissViewControllerAnimated:YES completion:nil];
     [super back];
 }
@@ -85,13 +82,13 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-//    self.navigationItem.leftBarButtonItem = [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"返回" titleColor:[UIColor blueColor]];
+    //    self.navigationItem.leftBarButtonItem = [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"返回" titleColor:[UIColor blueColor]];
     [self _initWKWebView];
     [self initProgressView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
 }
 - (void)viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:animated];
 }
 - (void)didReceiveMemoryWarning{
@@ -113,7 +110,9 @@
     [_webView removeObserver:self forKeyPath:@"title"];
 }
 
-- (void)cleanCacheAndCookie{
+#pragma mark -
+#pragma mark - public
+- (void)cleanWebViewCache{
     
     if ([[UIDevice currentDevice] systemVersion].floatValue > 9.0) {
         
@@ -137,6 +136,18 @@
     else{
         
         
+    }
+}
+- (void)cleanWebViewCacheAndCookie{
+    
+    if ([[UIDevice currentDevice] systemVersion].floatValue > 9.0) {
+        
+        NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
+        NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
+            
+            // Done
+        }];
     }
 }
 
@@ -169,7 +180,7 @@
     }
     else if (object == _webView && [keyPath isEqualToString:@"canGoBack"]){
         
-//       self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
+        //       self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
     }
     else{
         
@@ -190,25 +201,25 @@
     if ([_webView canGoBack]) {
         self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
     }
-
+    
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     
     [self stopLoading];
 }
 - (void)_back{
-
+    
     [self dismissViewControllerAnimated:YES completion:nil];
-   [super back];
+    [super back];
 }
 - (void)back{
-
+    
     if ([_webView canGoBack]) {
         
         [_webView goBack];
     }
     else{
-    
+        
         [self _back];
     }
 }
