@@ -90,6 +90,16 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [self.webView removeObserver:self forKeyPath:@"canGoBack"];
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"title"];
+    [super viewWillDisappear:animated];
 }
 - (void)didReceiveMemoryWarning{
     
@@ -103,12 +113,7 @@
         self.view = nil;
     }
 }
-- (void)dealloc{
-    
-    [_webView removeObserver:self forKeyPath:@"canGoBack"];
-    [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
-    [_webView removeObserver:self forKeyPath:@"title"];
-}
+
 
 #pragma mark -
 #pragma mark - public
