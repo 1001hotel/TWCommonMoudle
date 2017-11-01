@@ -12,8 +12,8 @@
 @interface TW_WebPage : TW_CommonPage
 
 @property(nonatomic, copy) NSString *webUrl;
-@property(nonatomic, assign) BOOL isAlertModel;
 @property(nonatomic, strong) WKWebView *webView;
+@property(strong, nonatomic) UIProgressView *progressView;
 
 
 - (void)cleanWebViewCacheAndCookie;

@@ -9,15 +9,15 @@
 #import "TW_WebPage.h"
 
 @interface TW_WebPage ()
+<
+WKNavigationDelegate
+>
 {
     
     
     float _startProgress;
     
 }
-
-
-@property(strong, nonatomic) UIProgressView *progressView;
 
 
 @end
@@ -27,34 +27,39 @@
 
 - (void)_initWKWebView{
     
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    // 设置偏好设置
-    config.preferences = [[WKPreferences alloc] init];
-    // 默认为0
-    config.preferences.minimumFontSize = 10;
-    // 默认认为YES
-    config.preferences.javaScriptEnabled = YES;
-    // 在iOS上默认为NO，表示不能自动通过窗口打开
-    config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
-    config.processPool = [[WKProcessPool alloc] init];
-    
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44 - 20) configuration:config];
-    [self.view addSubview:self.webView];
-    [[UINavigationBar appearance] setTranslucent:NO];
-    [[UITabBar appearance] setTranslucent:NO];
-    
-    [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
-    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+    if (!self.webView) {
+        
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        // 设置偏好设置
+        config.preferences = [[WKPreferences alloc] init];
+        // 默认为0
+        config.preferences.minimumFontSize = 10;
+        // 默认认为YES
+        config.preferences.javaScriptEnabled = YES;
+        // 在iOS上默认为NO，表示不能自动通过窗口打开
+        config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
+        config.processPool = [[WKProcessPool alloc] init];
+        
+        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44 - 20) configuration:config];
+    }
+    self.webView.navigationDelegate = self;
+
+    if (!self.webView.superview) {
+        
+        [self.view addSubview:self.webView];
+    }
 }
 //进度条
 - (void)initProgressView{
     
-    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 2)];
-    progressView.tintColor = [UIColor colorWithRed:74 / 255.0 green:189 / 255.0 blue:204 / 255.0 alpha:1];
-    progressView.trackTintColor = [UIColor clearColor];
-    [self.view addSubview:progressView];
-    self.progressView = progressView;
+    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 2)];
+    self.progressView.tintColor = [UIColor colorWithRed:74 / 255.0 green:189 / 255.0 blue:204 / 255.0 alpha:1];
+    self.progressView.trackTintColor = [UIColor clearColor];
+    
+    if (!self.progressView.superview) {
+        
+        [self.view addSubview:self.progressView];
+    }
     
     float progressvalue = 0;
     
@@ -62,7 +67,6 @@
         
         progressvalue = arc4random() % 50;
     }
-    
     _startProgress = progressvalue / 100.0;
     [self.progressView setProgress:_startProgress animated:YES];
 }
@@ -73,19 +77,24 @@
     [super back];
 }
 
+
 @end
 
+
 @implementation TW_WebPage
+
 
 #pragma mark -
 #pragma mark - lifeCycle
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    //    self.navigationItem.leftBarButtonItem = [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"返回" titleColor:[UIColor blueColor]];
     [self _initWKWebView];
     [self initProgressView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
+    if (self.webUrl.length > 0) {
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]]];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -167,6 +176,7 @@
             
             [self.progressView setProgress:1.0 animated:YES];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
                 self.progressView.hidden = YES;
                 [self.progressView setProgress:0 animated:NO];
             });
@@ -196,21 +206,21 @@
 
 #pragma mark -
 #pragma mark - UIWebViewDelegate
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [self stopLoading];
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     
-    if (self.navigationItem.title.length == 0) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    }
-    if ([_webView canGoBack]) {
-        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[self createTopLeftBack], [self createCustomizedItemWithSEL:@selector(_back) titleStr:@"关闭" titleColor:[UIColor blueColor]], nil];
-    }
-    
+        self.progressView.hidden = YES;
+        [self.progressView setProgress:0 animated:NO];
+    });
 }
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
     
-    [self stopLoading];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.progressView.hidden = YES;
+        [self.progressView setProgress:0 animated:NO];
+    });
 }
 - (void)_back{
     
