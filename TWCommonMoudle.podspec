@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWCommonMoudle"
-  s.version      = "1.3.6"
+  s.version      = "1.3.7"
   s.summary      = "A tuyu common  used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.

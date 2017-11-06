@@ -49,7 +49,7 @@ typedef enum {
 +(NSArray *)randomlyGroupFrom:(NSArray *)sourceSet withMaxGroupSize:(NSInteger)groupSize;
 +(NSArray *)groupFrom:(NSArray *)sourceSet withGroupSize:(NSInteger)groupSize;
 
-+(NSData *) :(NSData *)sourceData;
++(NSData *)simpleEncryption__Indexed_And_XOR__From:(NSData *)sourceData;
 +(NSData *)simpleDecryption__XOR_And_Indexed__From:(NSData *)sourceData;
 
 +(NSString *)simpleDigitTransToLetter:(NSString *)sourceStr;

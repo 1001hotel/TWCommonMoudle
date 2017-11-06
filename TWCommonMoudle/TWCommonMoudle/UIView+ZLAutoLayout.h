@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, ZLAutoLayoutAlign){
          *  Current view EqualTo superView autoLayout + inset.
          *
          *  @param direction    ZLAutoLayoutDirection
-         *  @param withInset    Inset
+         *  @param inset    Inset
          */
         - (void)autoPinSuperViewDirection:(ZLAutoLayoutDirection)direction withInset:(CGFloat)inset;
 
@@ -73,7 +73,7 @@ typedef NS_ENUM(NSUInteger, ZLAutoLayoutAlign){
          *
          *  @param direction    ZLAutoLayoutDirection
          *  @param toDircetion  OfView ZLAutoLayoutDirection
-         *  @param withInset    Inset
+         *  @param inset    Inset
          */
         - (void)autoPinDirection:(ZLAutoLayoutDirection)direction toPinDirection:(ZLAutoLayoutDirection)toDircetion ofView:(UIView *)view withInset:(CGFloat)inset;
 

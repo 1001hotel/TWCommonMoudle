@@ -1136,7 +1136,7 @@
         NSNumber *freeFileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemFreeSize];
         totalSpace = [fileSystemSizeInBytes floatValue];
         totalFreeSpace = [freeFileSystemSizeInBytes floatValue];
-//        NSLog(@"Memory Capacity of %f GB with %f GB Free memory available.", ((totalSpace/1024.0f)/1024.0f/1024.0f), ((totalFreeSpace/1024.0f)/1024.0f)/1024.0f);
+        NSLog(@"Memory Capacity of %f GB with %f GB Free memory available.", ((totalSpace/1024.0f)/1024.0f/1024.0f), ((totalFreeSpace/1024.0f)/1024.0f)/1024.0f);
     }
     else {
         NSLog(@"Error Obtaining System Memory"); //Info: Domain = %@, Code = %@", [error domain], [error code]);
@@ -1172,7 +1172,7 @@
 //    NSString *telephone = @"^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
 //    NSPredicate *pred2 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telephone];
-    BOOL ok=[pred evaluateWithObject:str];
+//    BOOL ok=[pred evaluateWithObject:str];
 
 
     if (str.length == 11) {
@@ -1397,7 +1397,8 @@
     NSNumber * num = [dataNetworkItemView valueForKey:@"dataNetworkType"];
     nettype = (NETWORK_TYPE)[num integerValue];
     
-    NSString *resultStr = nil;
+    
+    NSString *resultStr = @"None";
     switch (nettype) {
         case NETWORK_TYPE_NONE:
             resultStr = @"None";
@@ -1417,6 +1418,9 @@
         case NETWORK_TYPE_WIFI:
             resultStr = @"WiFi";
             break;
+        default:
+            resultStr = @"None";
+            break;
     }
 
     return nettype;
@@ -1424,6 +1428,7 @@
 
 + (UIImage *)fixOrientation:(UIImage *)aImage {
     
+   
     // No-op if the orientation is already correct
     if (aImage.imageOrientation == UIImageOrientationUp)
         return aImage;
@@ -1603,6 +1608,7 @@
     CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
     
     CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CGColorSpaceRelease(cs);
     
     CIContext *context = [CIContext contextWithOptions:nil];
     
@@ -1621,8 +1627,10 @@
     CGContextRelease(bitmapRef);
     
     CGImageRelease(bitmapImage);
+    UIImage *imageResult = [UIImage imageWithCGImage:scaledImage];
+    CGImageRelease(scaledImage);
     
-    return [UIImage imageWithCGImage:scaledImage];
+    return imageResult;
     
 }
 + (NSString *)detectorTextFromQRImage:(UIImage *)image{
@@ -1936,7 +1944,7 @@
         }];
         [alert addAction:action];
     }
-    
+    /*
     if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"qqmap://"]])
     {
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"腾讯地图" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -1947,7 +1955,7 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"apis.map.qq.com/uri/v1/marker?marker=coord:39.892326,116.342763;title:超好吃冰激凌;addr:手帕口桥北铁路道口&referer=myapp"]];
         }];
     }
-
+//*/
     
     if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]])
     {

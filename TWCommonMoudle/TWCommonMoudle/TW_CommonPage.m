@@ -187,7 +187,7 @@ UIGestureRecognizerDelegate
         
         return nil;
     }
-    float imgWidthHeightRatio = img.size.width / img.size.height;
+//    float imgWidthHeightRatio = img.size.width / img.size.height;
     btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
@@ -198,8 +198,8 @@ UIGestureRecognizerDelegate
 - (UIBarButtonItem *)createCustomizedItemWithSEL:(SEL)sel image:(NSString *)imgName titleStr:(NSString *)title titleColor:(UIColor *)titleColor{
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *img = [UIImage imageNamed:imgName];
-    float imgWidthHeightRatio = img.size.width / img.size.height;
+//    UIImage *img = [UIImage imageNamed:imgName];
+//    float imgWidthHeightRatio = img.size.width / img.size.height;
     btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
@@ -213,8 +213,8 @@ UIGestureRecognizerDelegate
 - (UIBarButtonItem *)createCustomizedItemWithSEL:(SEL)sel image:(NSString *)imgName highlightedImg:(NSString *)imgName2{
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *img = [UIImage imageNamed:imgName];
-    float imgWidthHeightRatio = img.size.width / img.size.height;
+//    UIImage *img = [UIImage imageNamed:imgName];
+//    float imgWidthHeightRatio = img.size.width / img.size.height;
     btn.frame = CGRectMake(0, 0, NAVIGATIONBAR_BUTTON_HEIGHT, NAVIGATIONBAR_BUTTON_HEIGHT);
     [btn setContentMode:UIViewContentModeScaleAspectFit];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
@@ -516,13 +516,15 @@ UIGestureRecognizerDelegate
     
 }
 - (void)KeyBoardHidden:(NSNotification*)aNotification{
+    /*
     NSDictionary *userInfo = [aNotification userInfo];
     NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
     
-    //    _keyBoardHeight = keyboardRect.size.height;
+        _keyBoardHeight = keyboardRect.size.height;
+    //*/
     _keyBoardHeight = 0;
     
 }
