@@ -12,6 +12,8 @@
 #import "AFNetworking.h"
 
 
+#define ALERT_REMINDER_TITLE                @"" //@"温馨提示"
+
 #define STATUSBAR_HEIGHT                    20
 #define NAVIGATIONBAR_HEIGHT                44
 #define NAVIGATIONBAR_LABEL_WIDTH           160
@@ -253,7 +255,7 @@ UIGestureRecognizerDelegate
 #pragma mark - alertMessage
 - (void)alertMessage:(NSString *)message completion:(void (^)(void))completion{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeAlert
                                                              message:message
                                                             delegate:self
@@ -265,7 +267,7 @@ UIGestureRecognizerDelegate
 }
 - (void)alertMessageWithSelectable:(NSString *)message completion:(void (^)(void))completion cancel:(void (^)(void))cancel{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeAlert
                                                              message:message
                                                             delegate:self
@@ -277,7 +279,7 @@ UIGestureRecognizerDelegate
 }
 - (void)alertMessage:(NSString *)message delayForAutoComplete:(float)delay completion:(void(^)(void))completion{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeAlert
                                                              message:message
                                                             delegate:self
@@ -289,7 +291,7 @@ UIGestureRecognizerDelegate
 }
 - (void)alertMessage:(NSString *)message completeSelector:(SEL)sel{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"                                                                mode:AlertMessageTypeAlert
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE                                                                mode:AlertMessageTypeAlert
                                                              message:message
                                                             delegate:self
                                              confirmCompleteSelector:sel
@@ -300,7 +302,7 @@ UIGestureRecognizerDelegate
 }
 - (void)alertMessage:(NSString *)message delayForAutoComplete:(float)delay completeSelector:(SEL)sel{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeAlert
                                                              message:message
                                                             delegate:self
@@ -312,7 +314,7 @@ UIGestureRecognizerDelegate
 }
 - (void)decisionMessage:(NSString *)message confirmCompletion:(void(^)(void))completion cancelCompletion:(void(^)(void))completion2{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeDecision
                                                              message:message
                                                             delegate:self
@@ -324,7 +326,7 @@ UIGestureRecognizerDelegate
 }
 - (void)decisionMessage:(NSString *)message confirmTitle:(NSString *)title1 confirmCompletion:(void(^)(void))completion cancelTitle:(NSString *)title2 cancelCompletion:(void(^)(void))completion2 {
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeDecision
                                                              message:message
                                                             delegate:self
@@ -348,7 +350,7 @@ UIGestureRecognizerDelegate
 }
 - (void)decisionMessage:(NSString *)message confirmCompletion:(void(^)(void))completion cancelCompletion:(void(^)(void))completion2 continueCompletion:(void(^)(void))completion3{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeDecision
                                                              message:message
                                                             delegate:self
@@ -362,7 +364,7 @@ UIGestureRecognizerDelegate
 }
 - (void)decisionMessage:(NSString *)message confirmTitle:(NSString *)title1 confirmCompletion:(void(^)(void))completion1 cancelTitle:(NSString *)title2 cancelCompletion:(void(^)(void))completion2 continueTitle:(NSString *)title3 continueCompletion:(void(^)(void))completion3;{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc] initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc] initWithTitle:ALERT_REMINDER_TITLE
                                                                  mode:AlertMessageTypeDecision
                                                               message:message
                                                              delegate:self
@@ -376,7 +378,7 @@ UIGestureRecognizerDelegate
 }
 - (void)decisionMessage:(NSString *)message confirmCompleteSelector:(SEL)sel cancelCompleteSelector:(SEL)sel2{
     
-    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:@"温馨提示"
+    AlertMessage *_alertMessage = [[AlertMessage alloc]initWithTitle:ALERT_REMINDER_TITLE
                                                                 mode:AlertMessageTypeDecision
                                                              message:message
                                                             delegate:self

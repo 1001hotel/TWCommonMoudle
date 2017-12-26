@@ -174,9 +174,9 @@
 				6C773B441F0BACDE00128F3D /* Category */,
 				6C857B6B1F0B3A5100894A9D /* TWCommonDefine.h */,
 				6CB36E9A1F03A5C1000128FB /* TW_CommonPage.h */,
+				6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */,
 				6C6C99291F3D568B00E70739 /* TW_WebPage.h */,
 				6C6C992A1F3D568B00E70739 /* TW_WebPage.m */,
-				6CB36E9B1F03A5C1000128FB /* TW_CommonPage.m */,
 			);
 			name = TW_CommonPage;
 			sourceTree = "<group>";
