@@ -53,6 +53,7 @@
 
 @property (nonatomic ,strong) NSString *openId;
 @property (nonatomic ,strong) NSString *source;
+@property (nonatomic ,strong) NSString *isBd;
 
 
 
