@@ -17,6 +17,8 @@
 #define KEY_ACCESSTOKEN                       @"accesstoken"
 #define IS_EXPERT                             @"isExpert"
 #define IS_HOTEL                              @"isHotel"
+#define IS_BD                                 @"isBd"
+
 
 
 #define KEY_ACCESSTOKEN                       @"accesstoken"
