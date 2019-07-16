@@ -16,6 +16,8 @@
     FreshLoadingView *_loadingView;
 }
 
++ (UIEdgeInsets)safeAreaInset:(UIView *)view;
++ (BOOL)isPhoneX;
 
 - (BOOL)identifyTourWayInputContent:(NSString *)str;
 - (BOOL)identifyTourWayName:(NSString *)str;

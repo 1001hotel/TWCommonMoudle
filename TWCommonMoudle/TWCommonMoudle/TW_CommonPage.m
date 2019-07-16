@@ -59,6 +59,26 @@ UIGestureRecognizerDelegate
 
 @implementation TW_CommonPage
 
++ (BOOL)isPhoneX {
+    BOOL iPhoneX = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {//判断是否是手机
+        return iPhoneX;
+    }
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            iPhoneX = YES;
+        }
+    }
+    return iPhoneX;
+}
+
++ (UIEdgeInsets)safeAreaInset:(UIView *)view {
+    if([self isPhoneX]){
+        return view.safeAreaInsets;
+    }
+    return UIEdgeInsetsZero;
+}
 
 #pragma mark -
 #pragma mark - lifeCycle
