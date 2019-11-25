@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWCommonMoudle"
-  s.version      = "1.4.3"
+  s.version      = "1.4.4"
   s.summary      = "A tuyu common  used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
@@ -24,24 +24,24 @@ Pod::Spec.new do |s|
  #s.resources = "TWCommonMoudle/TWCommonMoudle/*.xib"
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics", "MapKit"
  s.libraries = "z", "c++"
- s.dependency "AFNetworking", "~> 3.1.0"
- s.dependency "MJRefresh", "~> 2.4.12"
- s.dependency "MJExtension", "~> 3.0.13"
- s.dependency "ShareSDK3", "~> 4.0.3"
+ s.dependency "AFNetworking"
+ s.dependency "MJRefresh"
+ s.dependency "MJExtension"
  s.dependency "MOBFoundation"
- s.dependency "ShareSDK3/ShareSDKPlatforms/QQ"
- s.dependency "ShareSDK3/ShareSDKPlatforms/SinaWeibo"
- s.dependency "ShareSDK3/ShareSDKPlatforms/WeChat"
- s.dependency "ShareSDK3/ShareSDKPlatforms/Facebook"
- s.dependency "ShareSDK3/ShareSDKPlatforms/Line"
- s.dependency "SDWebImage", "~> 3.7.3"
- s.dependency "Qiniu", "~> 7.1.5"
+ s.dependency "mob_sharesdk"
+ s.dependency "mob_sharesdk/ShareSDKPlatforms/QQ"
+ s.dependency "mob_sharesdk/ShareSDKPlatforms/SinaWeibo"
+ s.dependency "mob_sharesdk/ShareSDKPlatforms/WeChat"
+ s.dependency "mob_sharesdk/ShareSDKPlatforms/Facebook"
+ s.dependency "mob_sharesdk/ShareSDKPlatforms/Line"
+ s.dependency "SDWebImage"
+ s.dependency "Qiniu"
 
- s.dependency "AMapSearch-NO-IDFA", "~> 5.0.0"
- s.dependency "BaiduMobStat", "~> 4.5.0"
+ s.dependency "AMapSearch-NO-IDFA"
+ s.dependency "BaiduMobStat"
 
- s.dependency "TWFreshLoadingView", "~> 0.8.0"
- s.dependency "TWAlertMessage", "~> 1.1.0"
+ s.dependency "TWFreshLoadingView"
+ s.dependency "TWAlertMessage"
 
 
 
