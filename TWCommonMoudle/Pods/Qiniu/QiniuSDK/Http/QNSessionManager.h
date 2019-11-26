@@ -9,14 +9,14 @@
 
 - (instancetype)initWithProxy:(NSDictionary *)proxyDict
                       timeout:(UInt32)timeout
-                 urlConverter:(QNUrlConvert)converter
-                          dns:(QNDnsManager *)dns;
+                 urlConverter:(QNUrlConvert)converter;
 
 - (void)multipartPost:(NSString *)url
              withData:(NSData *)data
            withParams:(NSDictionary *)params
          withFileName:(NSString *)key
          withMimeType:(NSString *)mime
+   withTaskIdentifier:(NSString *)taskIdentifier
     withCompleteBlock:(QNCompleteBlock)completeBlock
     withProgressBlock:(QNInternalProgressBlock)progressBlock
       withCancelBlock:(QNCancelBlock)cancelBlock
@@ -26,6 +26,7 @@
              withData:(NSData *)data
            withParams:(NSDictionary *)params
           withHeaders:(NSDictionary *)headers
+    withTaskIdentifier:(NSString *)taskIdentifier
     withCompleteBlock:(QNCompleteBlock)completeBlock
     withProgressBlock:(QNInternalProgressBlock)progressBlock
       withCancelBlock:(QNCancelBlock)cancelBlock
@@ -34,6 +35,8 @@
 - (void)get:(NSString *)url
           withHeaders:(NSDictionary *)headers
     withCompleteBlock:(QNCompleteBlock)completeBlock;
+
+- (void)invalidateSessionWithIdentifier:(NSString *)identifier;
 
 @end
 

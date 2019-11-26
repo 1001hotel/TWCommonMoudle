@@ -14,6 +14,7 @@
 #import "QNUploadManager.h"
 #import "QNUploadOption+Private.h"
 #import "QNUrlSafeBase64.h"
+#import "QNUploadInfoReporter.h"
 
 @interface QNFormUpload ()
 
@@ -25,9 +26,11 @@
 @property (nonatomic, strong) QNUploadOption *option;
 @property (nonatomic, strong) QNUpCompletionHandler complete;
 @property (nonatomic, strong) QNConfiguration *config;
+@property (nonatomic, strong) NSString *fileName;
 @property (nonatomic) float previousPercent;
 
 @property (nonatomic, strong) NSString *access; //AK
+@property (nonatomic, copy) NSString *taskIdentifier;
 
 @end
 
@@ -35,6 +38,7 @@
 
 - (instancetype)initWithData:(NSData *)data
                      withKey:(NSString *)key
+                withFileName:(NSString *)fileName
                    withToken:(QNUpToken *)token
        withCompletionHandler:(QNUpCompletionHandler)block
                   withOption:(QNUploadOption *)option
@@ -48,29 +52,22 @@
         _complete = block;
         _httpManager = http;
         _config = config;
+        _fileName = fileName != nil ? fileName : @"?";
         _previousPercent = 0;
         _access = token.access;
+        _taskIdentifier = [[NSUUID UUID] UUIDString];
     }
     return self;
 }
 
 - (void)put {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    NSString *fileName = _key;
     if (_key) {
         parameters[@"key"] = _key;
-    } else {
-        fileName = @"?";
     }
-
     parameters[@"token"] = _token.token;
-
     [parameters addEntriesFromDictionary:_option.params];
-
-    if (_option.checkCrc) {
-        parameters[@"crc32"] = [NSString stringWithFormat:@"%u", (unsigned int)[QNCrc32 data:_data]];
-    }
-
+    parameters[@"crc32"] = [NSString stringWithFormat:@"%u", (unsigned int)[QNCrc32 data:_data]];
     QNInternalProgressBlock p = ^(long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         float percent = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
         if (percent > 0.95) {
@@ -83,8 +80,13 @@
         }
         _option.progressHandler(_key, percent);
     };
-
+    __block NSString *upHost = [_config.zone up:_token isHttps:_config.useHttps frozenDomain:nil];
     QNCompleteBlock complete = ^(QNResponseInfo *info, NSDictionary *resp) {
+        [UploadInfoReporter recordWithRequestType:ReportType_form
+                                     responseInfo:info
+                                        bytesSent:(UInt32)_data.length
+                                         fileSize:(UInt32)_data.length
+                                            token:_token.token];
         if (info.isOK) {
             _option.progressHandler(_key, 1.0);
         }
@@ -96,38 +98,73 @@
             _complete([QNResponseInfo cancel], _key, nil);
             return;
         }
-        NSString *nextHost = [_config.zone up:_token].address;
+        __block NSString *nextHost = upHost;
         if (info.isConnectionBroken || info.needSwitchServer) {
-            nextHost = [_config.zone upBackup:_token].address;
+            nextHost = [_config.zone up:_token isHttps:_config.useHttps frozenDomain:nextHost];
         }
-
         QNCompleteBlock retriedComplete = ^(QNResponseInfo *info, NSDictionary *resp) {
+            [UploadInfoReporter recordWithRequestType:ReportType_form
+                                         responseInfo:info
+                                            bytesSent:(UInt32)_data.length
+                                             fileSize:(UInt32)_data.length
+                                                token:_token.token];
             if (info.isOK) {
                 _option.progressHandler(_key, 1.0);
             }
-            _complete(info, _key, resp);
+            if (info.isOK || !info.couldRetry) {
+                _complete(info, _key, resp);
+                return;
+            }
+            if (_option.cancellationSignal()) {
+                _complete([QNResponseInfo cancel], _key, nil);
+                return;
+            }
+            NSString *thirdHost = nextHost;
+            if (info.isConnectionBroken || info.needSwitchServer) {
+                thirdHost = [_config.zone up:_token isHttps:_config.useHttps frozenDomain:nextHost];
+            }
+            QNCompleteBlock thirdComplete = ^(QNResponseInfo *info, NSDictionary *resp) {
+                [UploadInfoReporter recordWithRequestType:ReportType_form
+                                             responseInfo:info
+                                                bytesSent:(UInt32)_data.length
+                                                 fileSize:(UInt32)_data.length
+                                                    token:_token.token];
+                if (info.isOK) {
+                    _option.progressHandler(_key, 1.0);
+                }
+                _complete(info, _key, resp);
+            };
+            [_httpManager multipartPost:thirdHost
+                               withData:_data
+                             withParams:parameters
+                           withFileName:_fileName
+                           withMimeType:_option.mimeType
+                        withTaskIdentifier:_taskIdentifier
+                      withCompleteBlock:thirdComplete
+                      withProgressBlock:p
+                        withCancelBlock:_option.cancellationSignal
+                             withAccess:_access];
         };
-
         [_httpManager multipartPost:nextHost
                            withData:_data
                          withParams:parameters
-                       withFileName:fileName
+                       withFileName:_fileName
                        withMimeType:_option.mimeType
+                 withTaskIdentifier:_taskIdentifier
                   withCompleteBlock:retriedComplete
                   withProgressBlock:p
                     withCancelBlock:_option.cancellationSignal
                          withAccess:_access];
     };
-
-    [_httpManager multipartPost:[_config.zone up:_token].address
+    [_httpManager multipartPost:upHost
                        withData:_data
                      withParams:parameters
-                   withFileName:fileName
+                   withFileName:_fileName
                    withMimeType:_option.mimeType
+             withTaskIdentifier:_taskIdentifier
               withCompleteBlock:complete
               withProgressBlock:p
                 withCancelBlock:_option.cancellationSignal
                      withAccess:_access];
 }
-
 @end

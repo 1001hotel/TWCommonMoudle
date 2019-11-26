@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "QNRecorderDelegate.h"
 
 /**
@@ -25,9 +24,8 @@ extern const UInt32 kQNBlockSize;
 typedef NSString * (^QNUrlConvert)(NSString *url);
 
 @class QNConfigurationBuilder;
-@class QNDnsManager;
-@class QNServiceAddress;
 @class QNZone;
+@class QNReportConfig;
 /**
  *    Builder block
  *
@@ -62,6 +60,23 @@ typedef void (^QNConfigurationBuilderBlock)(QNConfigurationBuilder *builder);
  */
 @property (readonly) UInt32 timeoutInterval;
 
+/**
+ *    是否使用 https，默认为 YES
+ */
+@property (nonatomic, assign, readonly) BOOL useHttps;
+
+/**
+  *   是否开启并发分片上传，默认为NO
+  */
+@property (nonatomic, assign, readonly) BOOL useConcurrentResumeUpload;
+
+/**
+ *   并发分片上传的并发任务个数，在concurrentResumeUpload为YES时有效，默认为3个
+ */
+@property (nonatomic, assign, readonly) UInt32 concurrentTaskCount;
+
+@property (nonatomic, readonly) QNReportConfig *reportConfig;
+
 @property (nonatomic, readonly) id<QNRecorderDelegate> recorder;
 
 @property (nonatomic, readonly) QNRecorderKeyGenerator recorderKeyGen;
@@ -70,41 +85,48 @@ typedef void (^QNConfigurationBuilderBlock)(QNConfigurationBuilder *builder);
 
 @property (nonatomic, readonly) QNUrlConvert converter;
 
-@property (nonatomic, readonly) QNDnsManager *dns;
-
 @property (readonly) BOOL disableATS;
 
 + (instancetype)build:(QNConfigurationBuilderBlock)block;
 
 @end
 
-/**
- * 上传服务地址
- */
-@interface QNServiceAddress : NSObject
-
-- (instancetype)init:(NSString *)address ips:(NSArray *)ips;
-
-@property (nonatomic, readonly) NSString *address;
-@property (nonatomic, readonly) NSArray *ips;
-
-@end
-
 typedef void (^QNPrequeryReturn)(int code);
 
 @class QNUpToken;
+@class QNZoneInfo;
 
 @interface QNZone : NSObject
 
-/**
- *    默认上传服务器地址
- */
-- (QNServiceAddress *)up:(QNUpToken *)token;
+@property (nonatomic, strong) NSArray<NSString *> *upDomainList;
+@property (nonatomic, strong) QNZoneInfo *zoneInfo;
 
 /**
- *    备用上传服务器地址
+ *    默认上传服务器地址列表
  */
-- (QNServiceAddress *)upBackup:(QNUpToken *)token;
+- (void)preQuery:(QNUpToken *)token
+              on:(QNPrequeryReturn)ret;
+
+- (NSString *)up:(QNUpToken *)token
+         isHttps:(BOOL)isHttps
+    frozenDomain:(NSString *)frozenDomain;
+
+@end
+
+@interface QNZoneInfo : NSObject
+
+@property (readonly, nonatomic) long ttl;
+@property (readonly, nonatomic) NSMutableArray<NSString *> *upDomainsList;
+@property (readonly, nonatomic) NSMutableDictionary *upDomainsDic;
+
+- (instancetype)init:(long)ttl
+       upDomainsList:(NSMutableArray<NSString *> *)upDomainsList
+        upDomainsDic:(NSMutableDictionary *)upDomainsDic;
+- (QNZoneInfo *)buildInfoFromJson:(NSDictionary *)resp;
+
+@end
+
+@interface QNFixedZone : QNZone
 
 /**
  *    zone 0 华东
@@ -134,32 +156,45 @@ typedef void (^QNPrequeryReturn)(int code);
  */
 + (instancetype)zoneNa0;
 
-- (void)preQuery:(QNUpToken *)token
-              on:(QNPrequeryReturn)ret;
+/**
+ *    zone As0 新加坡
+ *
+ *    @return 实例
+*/
++ (instancetype)zoneAs0;
 
-+ (void)addIpToDns:(QNDnsManager *)dns;
-
-@end
-
-@interface QNFixedZone : QNZone
 /**
  *    Zone初始化方法
  *
- *    @param upHost     默认上传服务器地址
- *    @param upHostBackup     备用上传服务器地址
- *    @param upIp       备用上传IP
+ *    @param upList     默认上传服务器地址列表
  *
  *    @return Zone实例
  */
-- (instancetype)initWithUp:(QNServiceAddress *)up
-                  upBackup:(QNServiceAddress *)upBackup;
+- (instancetype)initWithupDomainList:(NSArray<NSString *> *)upList;
 
+/**
+ *    Zone初始化方法
+ *
+ *    @param upList     默认上传服务器地址列表
+ *
+ *    @return Zone实例
+ */
++ (instancetype)createWithHost:(NSArray<NSString *> *)upList;
+
+- (void)preQuery:(QNUpToken *)token
+              on:(QNPrequeryReturn)ret;
+
+- (NSString *)up:(QNUpToken *)token
+         isHttps:(BOOL)isHttps
+    frozenDomain:(NSString *)frozenDomain;
 @end
 
 @interface QNAutoZone : QNZone
 
-- (instancetype)initWithHttps:(BOOL)flag
-                          dns:(QNDnsManager *)dns;
+
+- (NSString *)up:(QNUpToken *)token
+         isHttps:(BOOL)isHttps
+    frozenDomain:(NSString *)frozenDomain;
 
 @end
 
@@ -190,15 +225,30 @@ typedef void (^QNPrequeryReturn)(int code);
  */
 @property (assign) UInt32 timeoutInterval;
 
+/**
+ *    是否使用 https，默认为 YES
+ */
+@property (nonatomic, assign) BOOL useHttps;
+
+/**
+ *   是否开启并发分片上传，默认为NO
+ */
+@property (nonatomic, assign) BOOL useConcurrentResumeUpload;
+
+/**
+ *   并发分片上传的并发任务个数，在concurrentResumeUpload为YES时有效，默认为3个
+ */
+@property (nonatomic, assign) UInt32 concurrentTaskCount;
+
 @property (nonatomic, strong) id<QNRecorderDelegate> recorder;
 
 @property (nonatomic, strong) QNRecorderKeyGenerator recorderKeyGen;
 
+@property (nonatomic, strong) QNReportConfig *reportConfig;
+
 @property (nonatomic, strong) NSDictionary *proxy;
 
 @property (nonatomic, strong) QNUrlConvert converter;
-
-@property (nonatomic, strong) QNDnsManager *dns;
 
 @property (assign) BOOL disableATS;
 

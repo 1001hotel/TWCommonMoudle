@@ -28,6 +28,7 @@
 		6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB5EBF41F0CEA1D00DBE10C /* AlicloudUtils.framework */; };
 		6CB5EC021F0CFE6E00DBE10C /* TW_UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EBFF1F0CFE6E00DBE10C /* TW_UserModel.m */; };
 		6CB5EC031F0CFE6E00DBE10C /* TW_UserModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5EC011F0CFE6E00DBE10C /* TW_UserModel2.m */; };
+		6CD67C59238CC10100FF71FB /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD67C57238BDB6D00FF71FB /* libresolv.9.tbd */; };
 		F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		6CB5EBFF1F0CFE6E00DBE10C /* TW_UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_UserModel.m; path = TWCommonMoudle/TW_UserModel.m; sourceTree = SOURCE_ROOT; };
 		6CB5EC001F0CFE6E00DBE10C /* TW_UserModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TW_UserModel2.h; path = TWCommonMoudle/TW_UserModel2.h; sourceTree = SOURCE_ROOT; };
 		6CB5EC011F0CFE6E00DBE10C /* TW_UserModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TW_UserModel2.m; path = TWCommonMoudle/TW_UserModel2.m; sourceTree = SOURCE_ROOT; };
+		6CD67C57238BDB6D00FF71FB /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		E06D3C20AC87BC516A9E41F3 /* Pods-TWCommonMoudleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWCommonMoudleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CD67C59238CC10100FF71FB /* libresolv.9.tbd in Frameworks */,
 				6CB5EBE81F0CD4A700DBE10C /* MapKit.framework in Frameworks */,
 				6CB5EBF61F0CEA1D00DBE10C /* AlicloudUtils.framework in Frameworks */,
 				F5203506E2A269BB407C2027 /* libPods-TWCommonMoudleDemo.a in Frameworks */,
@@ -100,6 +103,7 @@
 		66C465E5A9E77529130DD94B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CD67C57238BDB6D00FF71FB /* libresolv.9.tbd */,
 				6CB5EBE71F0CD4A700DBE10C /* MapKit.framework */,
 				577216341E9A7A11E502C98B /* libPods-TWCommonMoudleDemo.a */,
 			);
@@ -257,7 +261,6 @@
 				6CB36E7B1F039D95000128FB /* Sources */,
 				6CB36E7C1F039D95000128FB /* Frameworks */,
 				6CB36E7D1F039D95000128FB /* Resources */,
-				795D72671478094FE167C7F3 /* [CP] Embed Pods Frameworks */,
 				2A206155EC3C9B64D4E95914 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -290,6 +293,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -323,28 +327,134 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading10@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading11@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading12@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading13@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading14@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading15@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading16@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading17@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading18@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading19@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading1@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading20@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading21@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading22@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading23@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading24@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading25@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading26@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading27@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading28@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading29@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading2@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading30@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading31@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading32@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading33@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading34@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading35@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading36@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading37@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading38@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading39@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading3@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading40@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading41@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading42@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading43@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading44@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading45@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading46@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading47@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading48@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading49@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading4@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading50@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading51@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading52@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading5@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading6@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading7@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading8@2x.png",
+				"${PODS_ROOT}/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading9@2x.png",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK_JS_Facebook.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK_JS_Line.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK_JS_QQ.bundle",
+				"${PODS_ROOT}/mob_sharesdk/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK_JS_SinaWeibo.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/mob_sharesdk/ShareSDK_JS_WeChat.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading10@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading11@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading12@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading13@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading14@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading15@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading16@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading17@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading18@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading19@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading20@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading21@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading22@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading23@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading24@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading25@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading26@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading27@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading28@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading29@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading30@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading31@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading32@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading33@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading34@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading35@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading36@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading37@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading38@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading39@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading40@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading41@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading42@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading43@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading44@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading45@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading46@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading47@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading48@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading49@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading4@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading50@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading51@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading52@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading5@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading6@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading7@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading8@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TWFreshLoading9@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK_JS_Facebook.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK_JS_Line.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK_JS_QQ.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK_JS_SinaWeibo.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK_JS_WeChat.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		795D72671478094FE167C7F3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TWCommonMoudleDemo/Pods-TWCommonMoudleDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F9C75407BA411D8C5EDE7678 /* [CP] Check Pods Manifest.lock */ = {
@@ -353,13 +463,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TWCommonMoudleDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
